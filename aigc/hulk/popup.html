@@ -1,0 +1,31 @@
+manifest_version: 3
+default_icon: icons/16.png
+content_scripts:
+    - content.js
+
+### 二、弹出窗口界面 `popup.html`
+定义点击扩展图标后弹出的窗口内容（需放在 `c:/Users/17378/Desktop/lesson_si/aigc/hulk` 目录下）：
+```html
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hulk扩展</title>
+    <style>
+        body { min-width: 200px; padding: 10px; }
+        p { margin: 5px 0; }
+        button { margin-top: 10px; padding: 5px 10px; }
+    </style>
+</head>
+<body>
+    <!-- 需求中重复的提示文本 -->
+    <p>改变背景颜色</p>
+    <p>点击下方按钮将当前页面背景色为绿色</p>
+    <p>改变背景颜色</p>
+    <p>点击下方按钮将当前页面背景色为绿色</p>
+    <button id="changeColorBtn">立即改变背景色</button>
+    <script src="popup.js"></script>
+</body>
+</html>
+```
