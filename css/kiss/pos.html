@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+    /* css reset 样式重置 */
+    * {
+        margin: 0;
+        padding: 0;
+    }
+    .box {
+        width: 200px;
+        height: 200px;
+        background-color: red;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);  /*针对于自身移动 往左和往上 */
+    }
+
+    .inner-box {
+        width: 150px;
+        height: 150px;
+        
+        background-color: green;
+        position: relative; /*相对于自身的偏移量 当父元素有多个子元素时  可能会和absolute矛盾*/
+        top: 10px;
+        left: 10px;
+        margin-top: 30px;
+    }
+
+    .childbox {
+        
+    }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <div class="inner-box">
+            <div class="childbox"></div>
+        </div>
+    </div>
+</body>
+</html>

@@ -27,3 +27,5 @@
   打分 label分类
   result = semantic_cls(input='胡总吉他弹得真帅');
   
+  ## 分清概念
+
