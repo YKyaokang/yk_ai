@@ -14,7 +14,7 @@
     同一块中概念不重叠则不重复 (仍然使用__即可)
     .weui-page__title
     .weui-page__desc
-- UI 框架中button，input,cell,通用的**组件**
+- UI 框架中button， input,cell,通用的**组件**
     重启BEM 命名
     .weui-btn **复用**
     业务代码?
@@ -30,6 +30,6 @@
     - 页面由blocks构成 .weui-{block}
     - block 包含 elements .weui-{block}__{element}
     - element 会有些状态 
-        .weui-{block}__{element}_{modifier}
+        .weui-{block}__{element}--{modifier}
 
     - 当开发例如button这类可以复用的组件时，需要单独使用block 而不是使用element 这样子能够使得我们更好地进行复用
