@@ -9,7 +9,7 @@ function hongbao(total,num){
     const arr = [];
     let restAmount = total; //剩余金额
     let restNum = num; //剩余人数
-
+    
     for(let i = 0 ; i < num-1 ; i++)
     {
         // Math
