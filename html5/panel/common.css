@@ -1,0 +1,48 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex; /* 弹性布局 pad 手机 布局 弹性布局   */
+    align-items: center;
+    justify-content: center;
+    height: 100vh; /* vh:相对单位 一屏幕的高度为100vh,等比例划分 */
+    overflow: hidden;  /*超出则隐藏*/
+}
+
+.container {
+    display: flex; /* 弹性布局 */
+    height: 90vh;
+    width: 90vw; 
+    justify-content: center; 
+    align-self: center;
+}
+
+.qq-panel {
+    flex: 1;
+    border-radius: 50px;
+    height: 80vh;
+    color:#fff;
+    cursor: pointer;
+    margin: 10px;
+    position: relative;
+}
+
+.qq-panel__title {
+    font-size: 24px;
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    opacity: 0;
+}
+
+.qq-panel--active{
+    flex: 5;  
+}
+
+.qq-panel--active .qq-panel__title {
+    opacity: 1;
+    transition: opacity 0.3s ease-in 0.4s;
+}
