@@ -8,3 +8,8 @@ console.log(Number(undefined))
 console.log(NaN === NaN)  //false Not a Number 的方式有很多种
 console.log(typeof NaN)  //true
 console.log(isNaN(NaN),isNaN("123"),isNaN(Number("a123"))); //true false true
+
+console.log(Number(true))
+console.log(parseInt("1a"))
+
+console.log(Number("123a"))
