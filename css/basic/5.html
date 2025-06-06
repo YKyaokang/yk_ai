@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 伪类选择器 */
+        /* 1. 链接伪类选择器 */
+        /* 1.1 未访问的链接 */
+        a:link     { color: skyblue; }    /* 未访问的链接 */
+        a:visited  { color: purple; }  /* 已访问的链接 */
+        a:hover    { color: red; }     /* 鼠标悬停时 */
+        a:active   { color: orange; }  /* 点击激活时 */
+
+        button:hover    { background: red; }  /* 鼠标悬停 */
+        button:active   { border-radius: 20px; } /* 按下状态 */
+        input:focus     { border-radius: 20px; } /* 获得焦点时 */
+        
+        :target         { background: yellow; } /* URL片段标识的目标元素 */
+
+        ::selection {
+            background-color: brown;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <a href="#2">
+        链接相关伪类
+    </a>
+    <br>
+    <br>
+
+    <button>
+        按钮
+    </button>
+
+    <input type="text" placeholder="我是一个输入框">
+</body>
+</html>
