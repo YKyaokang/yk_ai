@@ -1,0 +1,35 @@
+button {
+    background-color: #1e90ff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+
+  button:hover {
+    background-color: #0066cc;
+  }
+  
+  button:active {
+    background-color: #004d99;
+    transform: translateY(1px);
+  }
+input {
+    padding: 10px 15px;
+    border: 2px solid #1e90ff;
+    border-radius: 4px;
+    font-size: 16px;
+    outline: none;
+    transition: border-color 0.3s ease;
+    width: 200px;
+    margin-right: 10px;
+  }
+
+  input:focus {
+    border-color: #0066cc;
+    box-shadow: 0 0 0 2px rgba(30, 144, 255, 0.2);
+  }
+  

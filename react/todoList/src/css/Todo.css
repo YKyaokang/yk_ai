@@ -1,0 +1,11 @@
+li {
+    padding: 10px 15px;
+    width: 314px;
+    margin: 5px 0;
+    background-color: #e6f2ff;
+    border-left: 3px solid #1e90ff;
+    border-radius: 4px;
+    list-style-type: none;
+    color: #0066cc;
+    transition: all 0.3s ease;
+  }

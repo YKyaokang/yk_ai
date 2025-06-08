@@ -11,5 +11,5 @@ function fn2(name)
 console.log(fn1.__proto__)  //[Function (anonymous)] Object
 console.log(fn2.__proto__)  //[Function (anonymous)] Object
 
-
-console.log(fn1.__proto__.__proto__ === [Object: null prototype] ) //Object Object
+fn1.__proto__ = ["heheheeheheheheheheheh"];
+console.log(fn1.__proto__)

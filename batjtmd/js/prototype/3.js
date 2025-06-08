@@ -29,7 +29,20 @@ console.log(o.toString());
 console.log(hu.toString())
 
 
+const zs = {
+    name: "张三",
+    age: 18,
+}
 
+const ww = {
+    name: "王五",
+    age: 20,
+}
+
+const zl = {
+    name: "赵六",
+    age: 19,
+}
 
 
 
