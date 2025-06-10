@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>两列布局Layout</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    .container {
+        /* 对内 管着子元素们 格式化上下文 direction
+        row column*/
+        
+      display: flex;/*弹性格式上下文 对外 宽度弹性，由设备决定 */
+      width: 600px;
+    }
+
+    .container aside {
+        /* width: 200px; */
+        flex: 1 2 500px;
+        background-color: pink;
+    }
+
+    .container main{
+        /* flex-grow flex-shrink    */
+        flex: 2 1 400px; 
+        background-color: green; 
+    }
+
+  </style>
+</head>
+<body>
+  <!-- html + css 页面做好排版
+  光有 块级、行类标签不够 
+  display 页面元素的文档流输出 -->
+  <div class="container">
+    <aside>
+      广告或菜单
+    </aside>
+    <main>
+      主题内容
+    </main>
+  </div>
+</body>
+</html>
