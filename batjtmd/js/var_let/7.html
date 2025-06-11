@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>箭头函数中的this</title>
+</head>
+<body>
+    
+    <script>
+        var name = "windowsName"
+        var a = {
+            name: 'Tom',
+            func1: function(){
+                console.log(this.name); // 函数运行后的 指针对象
+            },
+            func2: function(){
+                // 箭头函数中的this 是定义时的this
+                setTimeout(()=>{
+                    console.log(this.name); // 函数运行后的 指针对象
+                })
+            }
+            
+        }
+
+        a.func1(); // Tom
+        a.func2(); // windowsName
+    </script>
+</body>
+</html>

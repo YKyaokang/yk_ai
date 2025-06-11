@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        // "use strict";
+        // es5 规则 向上兼容 es6 let cosnt 重新定义
+        var name = "谢为江"
+        function func(){
+        console.log(this);
+        console.log(this.name);
+    }
+    func(); //函数的调用 普通函数被掉调用 
+    window.func();
+    </script>
+    
+</body>
+</html>
