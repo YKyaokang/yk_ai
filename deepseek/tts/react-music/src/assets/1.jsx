@@ -3,12 +3,8 @@ import './App.css'
 
 function App() {
   
- 
   const audioPlayer = useRef(null);
-  console.log(audioPlayer,'///')
   const playMusic = () => {
-    console.log(audioPlayer,'###')
-    console.log('play music')
     audioPlayer.current.play();
   }
   return (
