@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta data-n-head="ssr" name="viewport" content="width=device-width, initial-scale=1, user-scalable=no, viewport-fit=cover">
+    <title>Document</title>
+    <style>
+        *{
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        .box {
+            display: inline-block;
+            width: 50%;
+            border: 1px solid red;
+            padding: 5px;
+        }
+        .container.flex {
+            font-size: 0; /* 消除空白间隙 */
+        }   
+        .box {
+            font-size: 16px; /* 恢复文字大小 */
+        }   
+
+    </style>
+</head>
+<body>
+    <div class="container flex">
+        <div class="box">第一个盒子</div>
+        <div class="box">第二个盒子</div>
+    </div>
+</body>
+</html>

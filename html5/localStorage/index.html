@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta data-n-head="ssr" name="viewport" content="width=device-width, initial-scale=1, user-scalable=no, viewport-fit=cover">
+    <title>Document</title>
+    <link rel="stylesheet" href="./common.css">
+    <script src="./common.js"></script>
+</head>
+<body>
+    <div class="wrapper">
+        <h2>
+           LocalStorage 
+        </h2>   
+        <p>请添加你的TAPES</p>
+        <ul class="plates">
+            <li>loading Tapes...</li>
+        </ul>
+        <form action="add-items">
+            <input 
+            type="text"
+            placeholder="Item Name"
+            required
+            name="item"
+            >
+            <input type="submit" value="+ Add Item">
+
+        </form>  
+    </div>
+</body>
+</html>
