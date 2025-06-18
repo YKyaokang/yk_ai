@@ -24,5 +24,3 @@ npm install -g stylus
   - 模块特性
     tab 缩进 自动补全css 前缀 
     模块和作用域的概念 
-
-- viewport 
