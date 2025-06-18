@@ -5,6 +5,8 @@
  //  dp 动态规划
  // 最值问题用动规 
 
+ // 从斐波那契数列
+
 const climbStairs = function(n) {
     // dp数组 
     const dp = [];
