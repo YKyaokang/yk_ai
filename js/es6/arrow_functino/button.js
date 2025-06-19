@@ -1,6 +1,7 @@
 // 业务流水账代码
 // 封装 
 function Button(id){
+    console.log(this)
     this.element = document.querySelector(`#${id}`);
     this.bindEvent();
 }
@@ -11,5 +12,5 @@ Button.prototype.bindEvent = function() {
 }
 
 Button.prototype.setBgColor = function(){
-
+    this.element.style.backgroundColor = 'green';
 }
