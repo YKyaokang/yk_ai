@@ -15,11 +15,7 @@ function objectFactory() {
 function Person(name,age){
     this.name = name
     this.age = age
-    return {
-        name:name,
-        age:age,
-        label:'haha'
-    }
+    return null
 }
 
 
