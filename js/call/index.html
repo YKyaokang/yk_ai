@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        'use strict';
+        var name = "Trump";
+        // rest 运算符
+        function gretting(...args){ //函数的运行的argument 不受call和apply影响 
+            console.log(args,arguments[0],arguments[1])
+            return `hello , Im ${this.name}`;
+        }
+
+        const lj = {
+            name:'雷军'
+        }
+
+        console.log(gretting.apply(lj,[19,'抚州']));
+        // console.log(gretting.call());
+        // console.log(gretting.call(null));
+        // console.log(gretting.call(1)) //只要不是对象 都为全局对象
+        const fn = gretting.bind(lj,18,'抚州')
+
+        //返回了this 被绑定为lj 的函数
+        console.log(fn);
+        setTimeout(() => {
+            console.log(fn(18,'5'))
+        },1000)
+
+    </script>
+</body>
+</html>
