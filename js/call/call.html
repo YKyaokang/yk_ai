@@ -14,11 +14,11 @@ function gretting(...args) {
   return `hello , I am ${this.name}.`;
 }
 // ...args  rest 运算符
-Function.prototype.myCall = function(context, ...args) {
-  console.log('////')
-  if (context === null || context === undefined) {
-    context = window;
-  }
+  Function.prototype.myCall = function(context, ...args) {
+    console.log('////')
+    if (context === null || context === undefined) {
+      context = window;
+    }
   // this? greeting
   console.log(this);
   if (typeof this !== 'function') {

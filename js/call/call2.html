@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+<script>
+
+function gretting(...args) {
+  return `hello , I am ${this.name}.`;
+}
+
+
+Function.prototype.myCall = function(context, ...args) {
+  if (context === null || context === undefined) {
+    context = window;
+  }
+
+  if (typeof this !== 'function') {
+    throw new TypeError('Function.prototype.myCall called on non-function')
+  }
+
+  const fnKey = Symbol('fn');
+  context[fnKey] = this;
+  const result = context[fnKey](...args);
+  delete context[fnKey];
+  return result;
+}
+var obj = {
+  name:"刘德华",
+  age:18,
+  fn: function() {
+  }
+}
+
+
+console.log(gretting.myCall(obj, 1, 2, 3));
+</script>
+</body>
+</html>
