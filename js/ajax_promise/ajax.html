@@ -7,7 +7,7 @@
 </head>
 <body>
     <ul id="repos"></ul>
- <script type="module">
+    <script type="module">
     //https://api.github.com/users/shunwuyu/repos
     // 前后端分离 js 主动的请求接口(异步任务) 拿到数据 
     // xhr 对象？
@@ -29,8 +29,8 @@
     xhr.onreadystatechange = function (){
         if(xhr.readyState == 4){
             resolve(JSON.parse(xhr.responseText))
-        }
-        }
+            }
+            }
         });
     }
 

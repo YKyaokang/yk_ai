@@ -11,6 +11,7 @@
     <script>
     // 发送请求了
     // html5 事件流 给他支持SSE 的地址
+    // SSE Server Sent Event 服务器端推送事件
     const source = new EventSource('/sse');
     source.onmessage = function(event) {
         // console.log(event.data);
