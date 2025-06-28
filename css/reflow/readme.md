@@ -9,8 +9,10 @@
   - 为什么不用？
     - 触发太多回流和重绘
     - 语义不和 table数据表
+
     tr td
     - 不够灵活      
+
 ## 回流和重绘
     - 回流（重排） reflow
     - 当RenderTree 中部分或全部元素尺寸，结构、或某些属性的发生改变时，浏览器重新渲染部分或全部文档的过程叫回流
@@ -24,7 +26,7 @@
      3. 元素尺寸或位置发生改变（transition,transform/opacity 新图层的除外）
      4. 元素内容的变化
         appendChild removeChild 
-     5. display:none block 
+     5. display:none block （使用 display: none 本身 会触发一次回流（Reflow）和重绘（Repaint），但 设置后 的元素及其子元素不再参与后续的回流和重绘。）
      6. 字体大小的变化
      7. 激活css伪类 :hover
        color: ? 浏览器需要重新计算元素的样式和布局
