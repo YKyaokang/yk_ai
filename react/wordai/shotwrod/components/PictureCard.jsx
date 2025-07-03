@@ -3,9 +3,11 @@ import React, {
 } from 'react';
 import './index.css'
 
-const PictureCard =  () => {
+const PictureCard =  (props) => {
+    console.log(props,'///');
+    const {uploadImage,word} = {...props};
+    console.log(uploadImage)
     const [imgPreview, setImgPreview] = useState('https://res.bearbobo.com/resource/upload/W44yyxvl/upload-ih56twxirei.png');
-    const [word,setWord] = useState("");
     const updateImageData = (e) => {
         // html5 的文件上传功能
         // 可选链操作符
@@ -16,11 +18,14 @@ const PictureCard =  () => {
         return new Promise((resolve,reject) => {
             // html5
             const reader = new FileReader();
-            reader.readAsDataURL(file)
+            reader.readAsDataURL(file);
             reader.onload = (e) => {
                 // console.log(reader.result);
                 // 响应式业务
                 setImgPreview(reader.result);
+                // 如何将图片数据交给父组件
+                uploadImage(reader.result);
+                resolve(reader.result)
             }
         });
     }

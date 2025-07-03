@@ -16,7 +16,32 @@
 const http = require('http');
 const fs = require('fs'); // file system 
 const path = require('path'); // 路径模块 
-
+/*
+ * 代码解读：
+ * 1. 模块引入部分：
+ *    - http: 创建web服务器的核心模块
+ *    - fs: 用于读取本地文件
+ *    - path: 安全地处理文件路径，避免不同操作系统的路径差异问题
+ * 
+ * 2. 服务器创建部分：
+ *    - 使用http.createServer()方法创建服务器实例
+ *    - 传入的回调函数会在每次收到请求时执行
+ * 
+ * 3. 请求处理逻辑：
+ *    - 首先检查请求方法和路径，只处理特定的GET请求
+ *    - 使用path.join()安全拼接路径，比字符串拼接更可靠
+ *    - fs.readFile()异步读取文件内容
+ *    - 完善的错误处理：文件读取失败返回500错误
+ *    - 成功读取后设置正确的Content-Type并返回文件内容
+ * 
+ * 4. 注意事项：
+ *    - 这是一个基础实现，实际应用中需要考虑更多情况：
+ *      * 其他HTTP方法的处理
+ *      * 其他URL路径的处理
+ *      * 更完善的错误处理
+ *      * 静态资源缓存等性能优化
+ *    - 目前代码只能处理index.html，实际需要支持多种静态文件
+ */
 const server = http.createServer((req, res) => {
   // res.end('hello http server');
   // http 基于请求响应的协议 
@@ -77,6 +102,42 @@ const server = http.createServer((req, res) => {
       }
     );
     return;
+  }
+
+  if (req.method == 'POST' && req.url == '/login'){
+    // 用户名和密码的校验
+    res.writeHead(200,{
+      'Set-Cookie': "user=admin;",
+      'Content-Type': 'application/json'
+    })
+    res.end(
+
+      JSON.stringify({
+        success:true,
+        msg:'登录成功'
+      }
+      )
+    )
+  }
+
+  if (req.method == "GET" && req.url == "/check-login"){
+    if(req.headers.cookie == admin){
+      res.writeHead(200,{
+        'Content-Type': 'application/json'
+      })
+      res.end(JSON.stringify({
+        isLogin:'ok'
+      }))
+    }
+    else {
+      res.writeHead(200,{
+        'Content-Type': 'application/json'
+      })
+      res.end(JSON.stringify({
+        isLogin:'fail'
+      }))
+    }
+    
   }
 })
 server.listen(8080);
