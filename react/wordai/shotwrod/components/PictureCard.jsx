@@ -41,7 +41,7 @@ const PictureCard =  (props) => {
         <label 
         className='upload'
         htmlFor="selectImage">
-            <img src={imgPreview} alt='preview'/>
+        <img src={imgPreview} alt='preview'/>
         </label>
         <div className='word'>{word}</div>
      </div>

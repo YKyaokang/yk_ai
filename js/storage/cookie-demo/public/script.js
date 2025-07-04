@@ -1,14 +1,10 @@
-// console.log('智能前端，智能后端，笑傲秋招')
 const loginForm = document.getElementById('loginForm');
 loginForm.addEventListener('submit', async (e) => {
   e.preventDefault();
   const username = document.getElementById('username').value.trim();
   const password = document.getElementById('password').value.trim();
-//   console.log(username);
-//   console.log(password);
-
   try{
-   const reponse = await fetch('/login',{
+   const response = await fetch('/login',{
     method:'POST',
     headers: {
       'Content-Type':'application/json'
@@ -18,8 +14,7 @@ loginForm.addEventListener('submit', async (e) => {
         password
     })
    })
-   const data = await responce.json();
-    console.log(data)
+   const data = await response.json();
   }
   catch{
     console.log('登录出错了')
@@ -27,7 +22,6 @@ loginForm.addEventListener('submit', async (e) => {
 })
 
 document.addEventListener('DOMContentLoaded',async ()=>{
-    // 登录吗？
     try {
       const response = await fetch('/check-login')
       const data =await response.json();
@@ -42,6 +36,6 @@ document.addEventListener('DOMContentLoaded',async ()=>{
         document.getElementById('welcomeSection').style.display = 'none';
       }
     }catch{
-
+      
     }
 })
