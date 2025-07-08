@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<div id="root">
+    使用了事件委托后
+    <ul id="myList">
+    <li data-item="123">Item 1</li>
+    <li data-item="456">Item 2</li>
+    <li data-item="789">Item 3</li>
+    <li data-item="012">Item 4</li>
+    </ul>
+</div>
+<script>
+  
+    // 事件委托
+    document.getElementById('myList').addEventListener('click',function(event){
+        console.log(event.target.dataset.item); // 唯一（必要）
+    },false)
+   
+    </script>
+</body>
+</html>
