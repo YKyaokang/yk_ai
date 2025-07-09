@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>防抖节流</title>
+</head>
+<body>
+    <input type = "text" id="inputA">
+
+    <script>
+        let inputA = document.getElementById('inputA');
+        
+       function ajax(content) {
+        console.log('ajax request' + content);
+       }
+       
+        inputA.addEventListener('keyup',function(event){
+            ajax(event.target.value);
+        })
+    </script>
+</body>
+</html>
