@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>微任务--前端环境下</title>
+</head>
+<body>
+    <script>
+        console.log("同步");
+        // 批量更新
+        // dom 树 cssom 树 layout 树 图层的合并 渲染会画出来这些 
+        // 假设有好多CSS等修改 会加入队列 后面会批量更新
+        // DOM 更新了, 但不是渲染完了
+        // 一个元素的高度 offsetHeight scrollTop getBoundingClientRect()
+        // 立即重绘重排 耗性能 
+        // 微任务队列 queueMicrotask 和MutationObserver 相似,都是用来用微任务关注DOM的 API
+        queueMicrotask(() => {
+            console.log('微任务:queueMicrotask')
+        })
+        console.log("同步结束")
+    </script>
+</body>
+</html>

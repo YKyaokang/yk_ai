@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 一个script 就是一个宏任务(整体)开始
+        // 同步任务
+            // js 调用栈 
+            // CPU计算
+
+        // 异步任务 耗时性的任务 ？任务放到某个地方？
+        // 单线程
+        console.log('script start');
+        // 异步任务,宏任务 任务队列
+        setTimeout(() => {
+            console.log('setTimeout');
+        },0);  //EventLoop
+        // then 异步 微任务 优先级更高
+        Promise.resolve().then(() => {
+            console.log('promise');
+        })
+        
+        console.log('script end');
+        
+        // 执行顺序:
+        // 同步任务 先执行script start 再执行script end
+        // event任务:再执行event promise 再渲染(停一下)
+
+
+    </script>
+</body>
+</html>
