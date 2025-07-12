@@ -40,7 +40,7 @@
   放到event loop中  队列中
   为什么setTimeout 不准
   event loop 机制
-  宏任务，微任务 队列 
+  宏任务，微任务 队列   
   - addEventListener 没有独立的线程
   （跟DOM相关，因为渲染线程 管的就是DOM，所以顺手就给这个管理了） 
   - fetch/xhr 专属的下载线程
