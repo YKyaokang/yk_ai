@@ -7,6 +7,10 @@ import { useState } from 'react'
 import './App.css'
 import Home from './pages/Home';
 import About from './pages/About'
+import UserProfile from './pages/UserProfile'
+import Products from './pages/Products'
+import ProductDetails from './pages/Products/ProductDetails'
+import NewProduct from './pages/Products/NewProduct'
 
 function App() {
 
@@ -17,6 +21,12 @@ function App() {
         <Routes>
           <Route path='/' element={<Home />}/>
           <Route path='/' element={<About/>}/>
+          <Route path='/user/:id' element={<UserProfile />}/> {/*动态路由 */}
+          <Route path='/products' element={<Products />}>
+            {/* 二级路由 */}
+            <Route path=":productId" element={<ProductDetails/>}/>
+            <Route path="new" element={<NewProduct />}/>
+          </Route>
         </Routes>
       </Router>
     </>
