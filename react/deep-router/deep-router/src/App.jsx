@@ -1,7 +1,7 @@
 import { 
   useState,
   Suspense,
-  lazy // 懒加载
+  lazy 
 } from 'react'
 import './App.css'
 import {
@@ -14,15 +14,10 @@ import Navigation from './components/Navigation';
 import ProtectRoute from './pages/ProtectRoute';
 import Pay from './pages/pay'
 
-
-// 函数  路由 -> Route
-// 懒加载
-// 新的组件 
 const Home = lazy(()=>import ("./pages/Home"))
 const About = lazy(()=>import ("./pages/About"))  
 const NotFound = lazy(() => import('./pages/NotFound'))
 const Login = lazy(() => import('./pages/Login'))
-// 30几个页面 
 
 
 function App() {
@@ -39,9 +34,7 @@ function App() {
           {/* 鉴权 */}
           <Route path="/pay" element={
             <ProtectRoute>
-            {/* <Pay /> */}
-            <div>123</div>
-            <div>456</div>  
+            <Pay />
             </ProtectRoute>
           } />
           <Route path='*' element={<NotFound />} />

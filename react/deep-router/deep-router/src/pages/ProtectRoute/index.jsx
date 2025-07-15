@@ -6,9 +6,6 @@ import {
 
 // 鉴权组件
 const ProtectRoute =(props) => {
-    // console.log(props)
-    // 并非子组件
-    // children属性 提升定制性 
     const { children } = props;
     const {pathname} = useLocation(); // 获取当前路径
     const isLogin = localStorage.getItem('isLogin') === 'true';

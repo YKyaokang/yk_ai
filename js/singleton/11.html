@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>设计模式之单例模式</title>
+</head>
+<body>
+    <script>
+        /*
+         * Storage 本地存储类
+         * 单例模式
+         * @func getItem 获取本地的值
+         * @func setItem 设置本地存储的值
+         */
+        class Storage {
+            
+            constructor(namespace = 'storage') {
+            this.namespace = namespace;
+            }
+
+            static getInstance(){
+                if (!Storage.instance) {
+                    Storage.instance = new Storage();
+                }
+                return Storage.instance
+            }    
+            
+        getItem(key) {
+        return localStorage.getItem(this.namespace + key);
+        }   
+    
+        setItem(key, value) {
+        localStorage.setItem(this.namespace + key, value);
+        }
+        
+        }
+
+
+        const storage1 =  Storage.getInstance();
+        const storage2 =  Storage.getInstance();
+
+        console.log(storage1 === storage2,'!!!')
+        storage1.setItem('name','卢老板');
+        storage2.setItem('name');
+        console.log(storage1.getItem('name'));
+        console.log(storage2.getItem('name'));
+    </script>
+</body>
+</html>
