@@ -70,7 +70,7 @@ function App(){
   // 派发 函数
   // 参数固定 {type: 'action'} action_type
   const [state,dispatch] = useReducer(reducer,initialState)
-  return (
+  return (  
     <>
       <p>Count:{state.count}</p>
       <button onClick={() => dispatch({type:'increment'})}>+</button>
