@@ -5,7 +5,9 @@ import { useTodoContext } from '../hooks/useTodoContext'
 
 const AddTodo = () => {
     const [text,setText] = useState('');
+    
     const {addTodo} = useTodoContext();  // 跨层级
+
     const handleSubmit = (e) =>{
         e.preventDefault();
         // 全局管理

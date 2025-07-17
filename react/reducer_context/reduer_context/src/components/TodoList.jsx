@@ -12,7 +12,6 @@ const TodoList = () => {
             {
                 todos.map(todo => (
                     <li key={todo.id}>
-                        哈啥
                         <span
                             onClick={() => toggleTodo(todo.id)}
                             style={{textDecoration:todo.done?'line-through':'none'}}
