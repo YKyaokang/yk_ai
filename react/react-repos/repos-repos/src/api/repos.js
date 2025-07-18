@@ -13,3 +13,6 @@ export const getRepos = (username) => {
 export const getRepoDetail = async (username, repoName) => {
     return await axios.get(`${BASE_URL}repos/${username}/${repoName}`)
 }
+
+
+
