@@ -11,7 +11,9 @@ import {
   Navigate
 } from 'react-router-dom'
 const RepoList = lazy(() => import('./pages/RepoList'))
-
+const RepoDetail = lazy(() => import('./pages/RepoDetail'))
+const Home = lazy(() => import('./pages/Home'))
+const NotFound = lazy(() => import('./pages/NotFound'))
 import Loading from './components/Loading'
 
 
@@ -20,8 +22,10 @@ function App() {
   return (
     <Suspense fallback={<Loading />}>
       <Routes>
+        <Route path="/" element={<Home />}/>
         <Route path="/users/:id/repos" element={<RepoList />}/>
-        <Route path='*' element={<Navigate to="users/shunwuyu/repos"/>}/>
+        <Route path='/users/:id/repos/:repoId' element={<RepoDetail />}/>
+        <Route path='*' element={<NotFound />}/>
       </Routes>
     </Suspense>
   )

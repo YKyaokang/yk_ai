@@ -9,8 +9,8 @@ const names = Array.of('Alice','Bob','Charlie','David');
 names.forEach(name => {
     if(name === 'Charlie') {
         console.log('Charlie is here,stop...')
-        // break;
         return;
+        console.log("hello")
     }
     console.log('Processing' + name);
 })

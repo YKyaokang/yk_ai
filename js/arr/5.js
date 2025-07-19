@@ -3,6 +3,6 @@
 // 新的状态基于上一个状态
 let result = [1,2,3,4,5,6].reduce((prev,curr)=>{
     return prev + curr;
-},0)
+})
 // prev：前一项求和之后的值
 console.log(result)
