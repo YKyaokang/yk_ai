@@ -12,6 +12,7 @@
     <li key={todo.id}>{title}</li>
     ...
 </ul>
+
 - JSX 背后 -> React.createElement(tag,props,chilren) -> document.createElement(tag)
     document.createElement('ul')
         document.createElement('li')
