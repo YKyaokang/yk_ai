@@ -20,7 +20,6 @@ function Guang(props,ref){
 // 2.将原本的子组件Guang替换为全新的父组件WrapperGuang
 // 3.原本的子组件添加ref参数，拿到ref
 // 3.这样子就可以在父组件中控制子组件中的DOM元素了
-
 // 高阶组件:WrapperGuang
 const WrapperGuang = forwardRef(Guang)
 
