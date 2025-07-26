@@ -1,11 +1,11 @@
 import { useState } from 'react'
-import FadeInBox from './components/FadeInBox'
+import './App.css'
 
 function App() {
 
   return (
     <>
-      <FadeInBox/>
+      <h1><Demo></Demo></h1>
     </>
   )
 }

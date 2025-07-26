@@ -1,0 +1,7 @@
+.box {
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+.box.fade-in {
+    opacity: 1;
+}
