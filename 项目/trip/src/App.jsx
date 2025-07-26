@@ -7,8 +7,8 @@ import {
   Route,
   Navigate
 } from 'react-router-dom'
-  import MainLayout from '@/components/MainLayout'
-  import BlankLayout from '@/components/BlankLayout'
+import MainLayout from '@/components/MainLayout'
+import BlankLayout from '@/components/BlankLayout'
 
 const Home = lazy(() => import('@/pages/Home'))
 const Search = lazy(() => import('@/pages/Search'))
@@ -22,6 +22,13 @@ import './App.css'
 
 function App() {
 
+  // async function testChat() {
+  //   const res = await chat([
+  //     { role: "user", content: "请问如何实现jwt" }
+  //   ]);
+  //   console.log(res, "//**/");
+  // }
+  // testChat();
 
   return (
     <>

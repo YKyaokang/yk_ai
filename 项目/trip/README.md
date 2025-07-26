@@ -49,8 +49,8 @@ README.md 很重要 方便面试官
 
 ## 开发前的准备
 - 安装的包
-    react-router-dom zustand axios
-    react-vant （第三方UI组件库）@react-vant/icons  lib-flexible  适配移动端
+    react-router-dom zustand axios @react-vant/icons
+    react-vant （第三方UI组件库）  lib-flexible  适配移动端
     开发期间的依赖
     jwt  vite-plugin-mock 
     postcss postcss-pxtorem  
@@ -100,8 +100,6 @@ README.md 很重要 方便面试官
         px 转 rem
 ## git 提交规范
 - 项目初始化
-
-
 ## 功能模块
 - UI 组件库
     - react-vant 第三方组件库  70%的组件已经有了，不用写
@@ -119,6 +117,31 @@ README.md 很重要 方便面试官
         react-vant  + @react-vant/icons
         - value +  onChange  响应式
         - 直接点击链接分享  active  的设置
+- chatbot
+    - llm 模块 chat 封装
+    - 迭代chat，支持任意模型
+## 项目亮点难点
+- 前端智能
+    - chat 函数
+    - 对各家模型比较感兴趣，升级为kimiChat，doubaoChat...灵活
+        性能、能力、性价比
+        随意切换大模型，通过参数抽象
+        函数重载
+- 原子css
+    - App.css 里面添加通用样式
+    - 各自模块里面module.css 不影响别的组件
+    - lib-flexible  适配移动端
+    - postcss pxtorem  插件 快速还原设计稿
+    - 原子类css，
+        一个元素按功能逻辑拆分成多个类，和原子一样
+        元素的样式就可以由这些原子类组合而成
+        样式可以复用的更好，以后几乎可以不用写样式
+
+## 项目遇到过什么问题，怎么解决的
+- chat messages 遇到messages 覆盖问题
+- 闭包陷阱
+    一次事件里面，两次setMessages()
+
 - 自定义hooks
     - useTitle
     一定要设置
@@ -128,3 +151,19 @@ README.md 很重要 方便面试官
     - arr.findIndex
     - str.startsWith
     - promise
+
+- 项目迭代
+    - 功能由潜入深
+    - chatbot  deepseek 简单chat
+    - deepseek-r1  推理模型
+    - 流式输出
+    - 上下文
+    - coze 工作流接口调用
+
+## 开发顺序
+- 先造一个可运行的DEMO（安装依赖 插件等）
+    - 写路由
+    - 写布局
+- 开始开发每个页面以及功能
+    - 先测试api
+    - 造页面时：先静态 后动态
