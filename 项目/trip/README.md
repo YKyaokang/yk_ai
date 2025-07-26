@@ -50,7 +50,7 @@ README.md 很重要 方便面试官
 ## 开发前的准备
 - 安装的包
     react-router-dom zustand axios
-    react-vant （第三方UI组件库）  lib-flexible  适配移动端
+    react-vant （第三方UI组件库）@react-vant/icons  lib-flexible  适配移动端
     开发期间的依赖
     jwt  vite-plugin-mock 
     postcss postcss-pxtorem  
@@ -100,6 +100,8 @@ README.md 很重要 方便面试官
         px 转 rem
 ## git 提交规范
 - 项目初始化
+
+
 ## 功能模块
 - UI 组件库
     - react-vant 第三方组件库  70%的组件已经有了，不用写
