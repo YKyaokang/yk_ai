@@ -6,7 +6,7 @@ import {
     Button,
     Input,
     Loading,
-    Toast
+    Popup
 } from 'react-vant'
 
 import useTitle from '@/hooks/useTitle'
@@ -21,6 +21,7 @@ import {
 
 const Trip = () => {
     useTitle('旅游智能客服')
+    const [visible, setVisible] = useState(false)
     const [text, setText] = useState("");
     const [isSending, setIsSending] = useState(false);
     // 数据驱动界面
@@ -36,10 +37,112 @@ const Trip = () => {
             content: 'hello, I am your assistant. What can I do for you?',
             role: 'assistant',
         },
+        {
+            id: 2,
+            content: 'hello~',
+            role: 'user'
+        },
+        {
+            id: 1,
+            content: 'hello, I am your assistant. What can I do for you?',
+            role: 'assistant',
+        },
+        {
+            id: 2,
+            content: 'hello~',
+            role: 'user'
+        },
+        {
+            id: 1,
+            content: 'hello, I am your assistant. What can I do for you?',
+            role: 'assistant',
+        },
+        {
+            id: 2,
+            content: 'hello~',
+            role: 'user'
+        },
+        {
+            id: 1,
+            content: 'hello, I am your assistant. What can I do for you?',
+            role: 'assistant',
+        },
+        {
+            id: 2,
+            content: 'hello~',
+            role: 'user'
+        },
+        {
+            id: 1,
+            content: 'hello, I am your assistant. What can I do for you?',
+            role: 'assistant',
+        },
+
+        {
+            id: 2,
+            content: 'hello~',
+            role: 'user'
+        },
+        {
+            id: 1,
+            content: 'hello, I am your assistant. What can I do for you?',
+            role: 'assistant',
+        },
+        {
+            id: 2,
+            content: 'hello~',
+            role: 'user'
+        },
+        {
+            id: 1,
+            content: 'hello, I am your assistant. What can I do for you?',
+            role: 'assistant',
+        },
+        {
+            id: 2,
+            content: 'hello~',
+            role: 'user'
+        },
+        {
+            id: 1,
+            content: 'hello, I am your assistant. What can I do for you?',
+            role: 'assistant',
+        },
+        {
+            id: 2,
+            content: 'hello~',
+            role: 'user'
+        },
+        {
+            id: 1,
+            content: 'hello, I am your assistant. What can I do for you?',
+            role: 'assistant',
+        },
+        {
+            id: 2,
+            content: 'hello~',
+            role: 'user'
+        },
+        {
+            id: 1,
+            content: 'hello, I am your assistant. What can I do for you?',
+            role: 'assistant',
+        },
+        {
+            id: 2,
+            content: 'hello~',
+            role: 'user'
+        },
+        {
+            id: 1,
+            content: 'hello, I am your assistant. What can I do for you?',
+            role: 'assistant',
+        },
+        
     ])
     const handleChat = async () => {
         if (text.trim() === "") {
-            Toast.info('内容不为空')
+            setVisible(true)
             return;
         }
         setIsSending(true);
@@ -69,7 +172,7 @@ const Trip = () => {
         setIsSending(false);
     }
     return (
-        <div className="flex flex-col h-screen">
+        <div className="flex flex-col h-all">
             <div className={`flex-1 ${styles.chatArea}`}>
                 {messages.map((msg, index) => (
                     <div
@@ -94,7 +197,10 @@ const Trip = () => {
                 />  
                 <Button disabled={isSending} type="primary" onClick={handleChat} >发送</Button>
             </div>
-            {isSending && <div className='fixed-loading'><Loading type='ball' /></div>}
+            {isSending && <div className='fixed-loading'><Loading color='blue' /></div>}
+            <Popup visible={visible} onClose={() => setVisible(false)}>
+            <div style={{ padding: '30px 50px' }}>非法操作：您未输入内容</div>
+            </Popup>
         </div>
     )
 }

@@ -62,7 +62,6 @@ const Acount = () => {
         <div className={styles.container}>
             <div className={styles.user}>
                 <Image
-                 
                     width='64px'
                     height='64px'
                     src={userInfo.avatar}

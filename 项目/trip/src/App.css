@@ -15,8 +15,21 @@
   height: 100vh;
 }
 
+
 .h-all {
   height: 100%;
+}
+
+.h-full {
+  height: 100%;
+}
+
+.overflow-hidden {
+  overflow: hidden;
+}
+
+.overflow-y-auto {
+  overflow-y: auto;
 }
 
 .fixed-loading {
@@ -38,4 +51,31 @@
 
 .ml1 {
   margin-left: 32px;
+}
+
+/* 避免文字换行异常 */
+body,
+button,
+input,
+select,
+textarea {
+  word-wrap: break-word;
+  word-break: break-all;
+}
+
+/* 覆盖 react-vant Tabbar 的默认定位  设置为FFC*/
+.rc-tabbar {
+  position: relative !important;
+  bottom: auto !important;
+  left: auto !important;
+  right: auto !important;
+}
+
+/* 覆盖 react-vant NavBar 的默认定位 设置为FFC*/
+.rc-nav-bar {
+  position: relative !important;
+  top: auto !important;
+  left: auto !important;
+  right: auto !important;
+  z-index: auto !important;
 }
