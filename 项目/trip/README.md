@@ -120,6 +120,12 @@ README.md 很重要 方便面试官
 - chatbot
     - llm 模块 chat 封装
     - 迭代chat，支持任意模型
+- Search
+    - 防抖
+    - api 
+        GoogleSuggest
+    - localStorage
+
 ## 项目亮点难点
 - 前端智能
     - chat 函数
@@ -167,3 +173,11 @@ README.md 很重要 方便面试官
 - 开始开发每个页面以及功能
     - 先测试api
     - 造页面时：先静态 后动态
+
+
+## 通用组件开发
+- Loading
+    - 居中方案：
+        position:fixed + tlrb0(四个方向为0) + margin + auto 
+    - React.memo 无状态组件，不重新渲染
+    - animation

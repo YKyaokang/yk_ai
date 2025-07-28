@@ -1,0 +1,53 @@
+/* 相对于视窗水平垂直居中 */
+.wrapper>div {
+    z-index: 9999;
+    position: fixed;/*static*/
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    background: #d44439; 
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    /*
+    animation-name: 关键帧名称
+
+    animation-duration: 动画持续时间
+
+    animation-timing-function: 速度曲线
+
+    animation-delay: 延迟
+
+    animation-iteration-count: 重复次数（数字或 infinite）
+
+    animation-direction: 播放方向（normal, reverse, alternate, alternate-reverse）
+
+    animation-fill-mode: 动画前后如何应用样式（none, forwards, backwards, both）
+
+    nimation-play-state: 控制播放状态（running, paused）
+    */
+    animation: loading 1.4s infinite ease-in;  
+}
+
+.wrapper>div:nth-child(2) {
+    animation-delay: -0.7s;
+}
+
+@keyframes loading {
+    /* 1.4 s 你设计多少个动作？ */
+    /* 0% => 100% */
+    0%,100%{
+        transform: scale(0);
+    }
+    /* 25% {
+        background-color: pink;
+    } */
+    50%{
+        transform: scale(1);
+    }
+    /* 75% {
+        background-color: green;
+    } */
+}

@@ -9,6 +9,7 @@ import {
 } from 'react-router-dom'
 import MainLayout from '@/components/MainLayout'
 import BlankLayout from '@/components/BlankLayout'
+import Loading from '@/components/Loading'
 
 const Home = lazy(() => import('@/pages/Home'))
 const Search = lazy(() => import('@/pages/Search'))
@@ -22,18 +23,11 @@ import './App.css'
 
 function App() {
 
-  // async function testChat() {
-  //   const res = await chat([
-  //     { role: "user", content: "请问如何实现jwt" }
-  //   ]);
-  //   console.log(res, "//**/");
-  // }
-  // testChat();
 
   return (
     <>
-      <Suspense fallback={<div>Loading...</div>}>
-        {/* 带有tabbar的Layout */}
+      <Suspense fallback={<Loading/>}>
+      
         <Routes >
           <Route path='/' element={<MainLayout />}>
             <Route path='/' element={<Navigate to='/home' />} />
@@ -43,8 +37,6 @@ function App() {
             <Route path='/trip' element={<Trip />} />
             <Route path='/account' element={<Account />} />
           </Route>
-
-          {/* 空的Layout */}
 
           <Route path='/' element={<BlankLayout />}>
             <Route path='/login' element={<Login />} />

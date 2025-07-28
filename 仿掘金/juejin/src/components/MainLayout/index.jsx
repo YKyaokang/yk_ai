@@ -53,7 +53,6 @@ const MainLayout = () =>{
             <div className="search" ><Search placeholder="3Katrina"/></div>
             <div className='bell'><Bell  fontSize="30px"/> </div>
             <div className="pic2"><Image src='https://d.musicapp.migu.cn/data/oss/resource/00/2s/td/a7ec0786330841ea9354ed3dbac084c3.webp' width="35px" height="35px" round/></div>
-            
         </div>
 
         <div className="nav">
