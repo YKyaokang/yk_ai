@@ -16,8 +16,7 @@ export default () => {
         {images.map((image, index) => (
           <Swiper.Item key={index}>
             <Image 
- 
-              src={image}
+               src={image}
               width="100%"
               height="100%"
               fit="cover"

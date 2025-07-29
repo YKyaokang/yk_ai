@@ -21,6 +21,13 @@ const useSearchStore = create((set , get) => {
             set({
                 suggestList: res.data
             })
+        },
+        setHotList: async () => {
+            const res = await getHotList();
+            console.log(res)
+            set({
+                hotList: res.data
+            })
         }
     }
 })

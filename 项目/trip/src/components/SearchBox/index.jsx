@@ -21,7 +21,6 @@ const SearchBox = (props) => {
     // 子父通信
     const [query , setQuery] = useState('');
     const { handleQuery } = props
-    // 非受控组件
     const queryRef = useRef(null)
     const handleChange = (e) => {
         let val = e.currentTarget.value;
@@ -37,11 +36,14 @@ const SearchBox = (props) => {
     const handleQueryDebounce = useMemo(() => {
         return debounce(handleQuery, 500);
     }, [])
+
     const displayStyle = query ? {display: 'block'} : {display: 'none'};
+    
     useEffect(() => {
         console.log('---------')
         handleQueryDebounce(query);
     }, [query])
+    
     return (
         <div className={styles.wrapper}>
             <ArrowLeft onClick={() => history.go(-1)} />
