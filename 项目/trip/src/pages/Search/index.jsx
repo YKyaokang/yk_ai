@@ -3,7 +3,7 @@ import {
     useEffect,
     memo
 } from 'react'
-import SearchBox from '@/components/SearchBox'
+import SearchBox from '@/components/Search/SearchBox'
 import useSearchStore from '@/store/useSearchStores.js'
 import styles from './search.module.css'
 

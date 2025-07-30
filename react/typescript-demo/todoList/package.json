@@ -1,25 +1,17 @@
 {
-  "name": "trip",
+  "name": "fasiojfsaiofjasif",
   "private": true,
   "version": "0.0.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
+    "build": "tsc -b && vite build",
     "lint": "eslint .",
     "preview": "vite preview"
   },
   "dependencies": {
-    "@react-vant/icons": "^0.1.0",
-    "axios": "^1.11.0",
-    "lib-flexible": "^0.3.2",
-    "mitt": "^3.0.1",
-    "mockjs": "^1.1.0",
     "react": "^19.1.0",
-    "react-dom": "^19.1.0",
-    "react-router-dom": "^7.7.1",
-    "react-vant": "^3.3.5",
-    "zustand": "^5.0.6"
+    "react-dom": "^19.1.0"
   },
   "devDependencies": {
     "@eslint/js": "^9.25.0",
@@ -30,10 +22,8 @@
     "eslint-plugin-react-hooks": "^5.2.0",
     "eslint-plugin-react-refresh": "^0.4.19",
     "globals": "^16.0.0",
-    "jwt": "^0.2.0",
-    "postcss": "^8.5.6",
-    "postcss-pxtorem": "^6.1.0",
-    "vite": "^6.3.5",
-    "vite-plugin-mock": "^3.0.2"
+    "typescript": "~5.8.3",
+    "typescript-eslint": "^8.30.1",
+    "vite": "^6.3.5"
   }
 }

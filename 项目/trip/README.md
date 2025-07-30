@@ -125,6 +125,21 @@ README.md 很重要 方便面试官
     - api 
         GoogleSuggest
     - localStorage
+- 瀑布流
+    - 小红书等主流App的内容浏览用户体验产品
+        两列、图片高度不一致 、落差感
+        滚动加载更多、图片懒加载
+    - 接口 
+        /api/images/?page=${n} 支持翻页
+        随机图片 高度随机
+    - images 怎么放到两列中 MVVM
+    数组驱动界面（2列） 奇偶 
+    瀑布流随机数据生成
+    - 加载更多 位于盒子底部的 通过使用 IntersectionObserver
+    观察它是否出现在视窗，性能更好，使用了观察者模式
+    组件卸载时，直接使用observer.disconnect() 释放资源 防止内存泄漏
+    - key id 下拉刷新
+    - 使用IntersectionOberver 再次图片懒加载 data-src
 
 ## 项目亮点难点
 - 前端智能
@@ -154,6 +169,22 @@ README.md 很重要 方便面试官
 - chat messages 遇到messages 覆盖问题
 - 闭包陷阱
     一次事件里面，两次setMessages()
+- 瀑布流？
+    - 骨架屏
+    - 奇偶images 两列分配可能有时候会像天残脚，不好看，随机
+        两个响应式数组，判断哪一列高度更少，将新得到的img加入那个数组        
+    - intersectionObserver 用的两次，重复了，dry原则 封装?
+        hooks
+- toast 组件封装
+    - 需要自定义，UI组件库不满足需求 
+    - 自定义UI props 
+    - JS 显示出来 跨层级通信
+        观察者
+    - mitt eventBus 事件总线
+    - 订阅者使用on方法 可以订阅某个事件类型
+    - 发布者可以使用emit方法 发布事件 此时 订阅者就能监听到 并且执行回调函数
+    - 这样子做就能实现一个全新的组件通信方式 跨层级  
+
 
 - 自定义hooks
     - useTitle
