@@ -54,4 +54,5 @@ baseURL和拦截器
 - 注重渲染顺序与useEffect里面的发送接口的顺序
 - 注重不要踩坑：一定要在store等地方设置初始值
 - useTitle一定要安排
-
+- 瀑布流 
+- Toast定制 mitt

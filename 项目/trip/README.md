@@ -98,6 +98,26 @@ README.md 很重要 方便面试官
         postcss 是css 预编译器，很强大
         vite 会自动读取postcss.config.js 将css文件 内容编译
         px 转 rem
+    - 智能生成图片
+        - 产品
+        冰球社群的宠物运动员 智能出图 
+        社交属性
+        - 商业价值
+        技术服务
+        coze 工作流 智能编排AI 流程 编程的一种
+        - api 调用 
+
+    - 设计工作流
+        - 创建工作流 ani_pic
+            上传宠物照片，生成宠物曲棍球运动员照片
+        - 代码节点
+            参数校验和逻辑功能，返回运行的结果
+        - 图片生成流程
+            - 图片理解插件 计算机视觉
+            - 大模型 特征提取 (系统提示词 + 用户提示词)
+            prompt 
+        - workflow_id
+            workflow_id=7533134933922938931`    
 ## git 提交规范
 - 项目初始化
 ## 功能模块
@@ -165,6 +185,12 @@ README.md 很重要 方便面试官
     - 热门推荐 + 相关商品 （产品）
     - SPA
     - 股价屏 不用让用户等待了 
+    - 文件上传的preview html5的FileReader 
+- coze 图片要上传到coze中
+    - uploadFile + workflow_id + token
+    工作流需要的参数 
+    
+
 ## 项目遇到过什么问题，怎么解决的
 - chat messages 遇到messages 覆盖问题
 - 闭包陷阱
