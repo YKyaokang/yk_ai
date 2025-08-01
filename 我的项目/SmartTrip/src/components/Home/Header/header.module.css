@@ -1,0 +1,132 @@
+.headerSearch {
+    display: flex;
+    align-items: center;
+    padding: 10 10px;
+    background: rgba(255, 255, 255, 0.2);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+    position: relative;
+    z-index: 2;
+}
+
+.region {
+    font-size: 14px;
+    padding-left: 10px;
+    color: #171ad070;
+}
+
+
+.searchInput {
+    flex: 1;
+    background-color: transparent;
+
+}
+
+.call {
+    padding-right: 10px;
+}
+
+.call:hover {
+    background: rgba(255, 255, 255, 0.4);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(66, 165, 245, 0.25);
+}
+
+.phoneIcon {
+    width: 20px;
+    height: 20px;
+    filter: brightness(0) saturate(100%) invert(21%) sepia(89%) saturate(2048%) hue-rotate(197deg) brightness(97%) contrast(97%);
+}
+
+.headerSelect {
+    background: rgba(255, 255, 255, 0.85);
+    border-radius: 20px;
+    margin: 20px 16px 24px 16px;
+    backdrop-filter: blur(15px);
+    box-shadow: 
+        0 4px 20px rgba(0, 0, 0, 0.08),
+        inset 0 1px 0 rgba(255, 255, 255, 0.9);
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+}
+
+.gridContainer {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    position: relative;
+}
+
+/* 第一行背景 - 淡蓝色 */
+.gridItem:nth-child(-n+5) {
+    background: rgba(224, 247, 255, 0.6);
+}
+
+/* 第二行背景 - 淡绿色 */
+.gridItem:nth-child(n+6):nth-child(-n+10) {
+    background: rgba(240, 253, 244, 0.6);
+}
+
+/* 第三行背景 - 淡紫色 */
+.gridItem:nth-child(n+11):nth-child(-n+15) {
+    background: rgba(248, 245, 255, 0.6);
+}
+
+/* 分层线 - 在第二行和第三行前添加 */
+.gridItem:nth-child(6)::before,
+.gridItem:nth-child(11)::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -50vw;
+    right: -50vw;
+    height: 1px;
+    background: linear-gradient(90deg, 
+        transparent 0%, 
+        rgba(0, 0, 0, 0.08) 20%, 
+        rgba(0, 0, 0, 0.08) 80%, 
+        transparent 100%);
+    z-index: 1;
+}
+
+.gridItem {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 16px 8px;
+    border: none;
+    transition: all 0.25s ease;
+    cursor: pointer;    
+    min-height: 70px;
+    position: relative;
+    margin: 0;
+}
+
+.gridItem:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.12);
+}
+
+.gridIcon {
+    width: 24px;
+    height: 24px;
+    margin-bottom: 6px;
+    filter: drop-shadow(0 1px 3px rgba(0, 0, 0, 0.15));
+    transition: all 0.25s ease;
+}
+
+.gridItem:hover .gridIcon {
+    transform: scale(1.1);
+}
+
+.gridText {
+    font-size: 11px;
+    color: #2c2c2c;
+    text-align: center;
+    font-weight: 600;
+    line-height: 1.3;
+    letter-spacing: 0.3px;
+    text-shadow: 0 1px 2px rgba(255, 255, 255, 0.8);
+}

@@ -1,0 +1,44 @@
+.adver_container{
+    display: flex;
+    margin-top: 15px;
+}
+
+.adver_item {
+    border-radius: 10px;
+    background: linear-gradient(135deg, #f0f8ff 0%, #e6f3ff 50%, #d4edff 100%);
+    margin: 5px;
+    box-shadow: 0 4px 15px rgba(30, 144, 255, 0.1);
+    border: 1px solid rgba(70, 130, 180, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    overflow: hidden;
+}
+
+.adver_item:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(30, 144, 255, 0.2);
+}
+
+h4 {
+    font-size: 16px;
+    font-weight: 600;
+    text-align: center;
+    color: rgb(30, 144, 255);
+    text-shadow: 1px 1px 3px rgba(30, 144, 255, 0.4);
+    background: linear-gradient(45deg, rgb(30, 144, 255), rgb(25, 25, 112));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    position: relative;
+    margin: 12px 0 8px 0;
+    padding: 0 8px;
+}
+
+
+img {
+    border-radius: 10px;
+    width: 100%;
+    height: auto;
+    display: block;
+}

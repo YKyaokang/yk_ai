@@ -1,0 +1,30 @@
+.swiper_container {
+    margin: 15px 10px;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.custom_swiper {
+    height: 200px;
+    border-radius: 12px;
+}
+
+.swiper_item {
+    width: 100%;
+    height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #ffffff;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+/* 自定义指示器样式 */
+.custom_swiper :global(.rv-swiper__indicator) {
+    background-color: rgba(255, 255, 255, 0.5);
+}
+
+.custom_swiper :global(.rv-swiper__indicator--active) {
+    background-color: rgb(98, 0, 255);
+}
