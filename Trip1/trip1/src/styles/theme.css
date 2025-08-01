@@ -1,0 +1,195 @@
+/* React-Vant 主题定制 */
+
+:root {
+  /* 主色调 - 去哪儿旅行品牌色 */
+  --rv-primary-color: #1890ff;
+  --rv-primary-color-light: #40a9ff;
+  --rv-primary-color-dark: #096dd9;
+  
+  /* 成功色 */
+  --rv-success-color: #52c41a;
+  --rv-success-color-light: #73d13d;
+  --rv-success-color-dark: #389e0d;
+  
+  /* 警告色 */
+  --rv-warning-color: #faad14;
+  --rv-warning-color-light: #ffc53d;
+  --rv-warning-color-dark: #d48806;
+  
+  /* 危险色 */
+  --rv-danger-color: #ff4d4f;
+  --rv-danger-color-light: #ff7875;
+  --rv-danger-color-dark: #d9363e;
+  
+  /* 文本颜色 */
+  --rv-text-color: #323233;
+  --rv-text-color-2: #646566;
+  --rv-text-color-3: #969799;
+  --rv-text-color-4: #c8c9cc;
+  
+  /* 背景色 */
+  --rv-background-color: #f7f8fa;
+  --rv-background-color-light: #fafafa;
+  --rv-active-color: #f2f3f5;
+  --rv-active-opacity: 0.7;
+  
+  /* 边框色 */
+  --rv-border-color: #ebedf0;
+  --rv-border-color-light: #f6f7f9;
+  
+  /* 字体大小 - 适配移动端 */
+  --rv-font-size-xs: 20px;
+  --rv-font-size-sm: 24px;
+  --rv-font-size-md: 28px;
+  --rv-font-size-lg: 32px;
+  --rv-font-size-xl: 36px;
+  
+  /* 间距 */
+  --rv-padding-base: 8px;
+  --rv-padding-xs: 16px;
+  --rv-padding-sm: 24px;
+  --rv-padding-md: 32px;
+  --rv-padding-lg: 48px;
+  --rv-padding-xl: 64px;
+  
+  /* 圆角 */
+  --rv-border-radius-sm: 4px;
+  --rv-border-radius-md: 12px;
+  --rv-border-radius-lg: 16px;
+  --rv-border-radius-max: 999px;
+  
+  /* 阴影 */
+  --rv-box-shadow-light: 0 2px 12px rgba(100, 101, 102, 0.12);
+  --rv-box-shadow: 0 4px 12px rgba(100, 101, 102, 0.15);
+  --rv-box-shadow-dark: 0 6px 20px rgba(100, 101, 102, 0.15);
+  
+  /* Tab 相关定制 */
+  --rv-tab-text-color: var(--rv-text-color-2);
+  --rv-tab-active-text-color: var(--rv-primary-color);
+  --rv-tab-font-size: var(--rv-font-size-md);
+  --rv-tabs-bottom-bar-color: var(--rv-primary-color);
+  --rv-tabs-bottom-bar-height: 6px;
+  
+  /* Button 相关定制 */
+  --rv-button-primary-background-color: var(--rv-primary-color);
+  --rv-button-primary-border-color: var(--rv-primary-color);
+  --rv-button-default-height: 88px;
+  --rv-button-large-height: 100px;
+  --rv-button-normal-font-size: var(--rv-font-size-md);
+  --rv-button-large-font-size: var(--rv-font-size-lg);
+  --rv-button-border-radius: var(--rv-border-radius-md);
+  
+  /* Cell 相关定制 */
+  --rv-cell-font-size: var(--rv-font-size-md);
+  --rv-cell-line-height: 1.5;
+  --rv-cell-vertical-padding: var(--rv-padding-md);
+  --rv-cell-horizontal-padding: var(--rv-padding-md);
+  
+  /* NavBar 相关定制 */
+  --rv-nav-bar-height: 92px;
+  --rv-nav-bar-background-color: var(--rv-primary-color);
+  --rv-nav-bar-title-font-size: var(--rv-font-size-lg);
+  --rv-nav-bar-title-text-color: white;
+  --rv-nav-bar-icon-color: white;
+  
+  /* Search 相关定制 */
+  --rv-search-padding: var(--rv-padding-sm) var(--rv-padding-md);
+  --rv-search-background-color: var(--rv-background-color);
+  --rv-search-content-background-color: white;
+  --rv-search-input-height: 68px;
+  
+  /* Toast 相关定制 */
+  --rv-toast-max-width: 70%;
+  --rv-toast-font-size: var(--rv-font-size-md);
+  --rv-toast-line-height: 1.5;
+  --rv-toast-border-radius: var(--rv-border-radius-lg);
+}
+
+/* 自定义 Tabs 样式 */
+.rv-tabs {
+  background: white;
+}
+
+.rv-tabs__nav {
+  background: white;
+  padding: 0 var(--rv-padding-md);
+}
+
+.rv-tabs__line {
+  background: linear-gradient(90deg, var(--rv-primary-color), var(--rv-primary-color-light));
+  height: var(--rv-tabs-bottom-bar-height);
+  border-radius: var(--rv-tabs-bottom-bar-height);
+}
+
+.rv-tab {
+  flex: none;
+  padding: var(--rv-padding-md) var(--rv-padding-lg);
+  font-weight: 500;
+}
+
+.rv-tab--active {
+  color: var(--rv-primary-color);
+  font-weight: 600;
+}
+
+/* 自定义 Button 样式 */
+.rv-button--primary {
+  background: linear-gradient(135deg, var(--rv-primary-color), var(--rv-primary-color-light));
+  border: none;
+  box-shadow: 0 4px 12px rgba(24, 144, 255, 0.3);
+  font-weight: 600;
+}
+
+.rv-button--primary:active {
+  background: linear-gradient(135deg, var(--rv-primary-color-dark), var(--rv-primary-color));
+}
+
+/* 自定义 Cell 样式 */
+.rv-cell {
+  transition: background-color 0.2s;
+}
+
+.rv-cell:active {
+  background-color: var(--rv-active-color);
+}
+
+.rv-cell__title {
+  font-weight: 500;
+}
+
+/* 自定义 NavBar 样式 */
+.rv-nav-bar {
+  background: linear-gradient(135deg, var(--rv-primary-color), var(--rv-primary-color-light));
+  box-shadow: var(--rv-box-shadow-light);
+}
+
+/* Loading 动画优化 */
+.rv-loading__spinner {
+  color: var(--rv-primary-color);
+}
+
+/* Toast 样式优化 */
+.rv-toast {
+  backdrop-filter: blur(10px);
+  background: rgba(255, 255, 255, 0.95);
+  color: var(--rv-text-color);
+  box-shadow: var(--rv-box-shadow);
+}
+
+/* Dialog 样式优化 */
+.rv-dialog {
+  border-radius: var(--rv-border-radius-lg);
+  overflow: hidden;
+}
+
+.rv-dialog__header {
+  padding: var(--rv-padding-lg) var(--rv-padding-lg) var(--rv-padding-md);
+  font-size: var(--rv-font-size-lg);
+  font-weight: 600;
+}
+
+.rv-dialog__content {
+  padding: 0 var(--rv-padding-lg) var(--rv-padding-lg);
+  font-size: var(--rv-font-size-md);
+  line-height: 1.6;
+}

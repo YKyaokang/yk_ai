@@ -1,5 +1,6 @@
 import { useRef, useEffect } from 'react'
 import styles from './imageCard.module.css'
+import { FireO, ChatO, LikeO } from '@react-vant/icons'
 // 默认占位图 (灰色背景的base64图片)
 const DEFAULT_PLACEHOLDER = 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxkZWZzPjxwYXR0ZXJuIGlkPSJwYXR0ZXJuIiB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBwYXR0ZXJuVW5pdHM9InVzZXJTcGFjZU9uVXNlIj48cGF0aCBkPSJNMjUgMEMxMS45IDAgMCAxMS45IDAgMjV2NTBDMCA4OC4xIDExLjkgMTAwIDI1IDEwMEg3NUM4OC4xIDEwMCAxMDAgODguMSAxMDAgNzVWMjVDMTAwIDExLjkgODguMSAwIDc1IDBINVUiIGZpbGw9IiMyMDIwMjAiLz48L3BhdHRlcm4+PC9kZWZzPjxyZWN0IHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9Im5vbmUiLz48L3N2Zz4=';
 // 加载失败占位图
@@ -12,6 +13,7 @@ const ImageCard = (props) => {
     useEffect(() => {
         const observer = new IntersectionObserver(([entry], obs) => {
             if (entry.isIntersecting) {
+                // 实现懒加载
                 const img = entry.target
                 const oImg = document.createElement('img')
                 oImg.src = img.dataset.src
@@ -52,9 +54,9 @@ const ImageCard = (props) => {
                         </span>
                     </div>
                     <div className={styles.stats}>
-                        <span className={styles.score}>⭐ {score}</span>
-                        <span className={styles.comments}>💬 {comments}</span>
-                        <span className={styles.like}>❤️ {like}</span>
+                        <span className={styles.score}> <FireO  />{score}</span>
+                        <span className={styles.comments}><ChatO  /> {comments}</span>
+                        <span className={styles.like}><LikeO  />{like}</span>
                     </div>
                 </div>
             </div>

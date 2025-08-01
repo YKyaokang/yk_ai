@@ -21,7 +21,7 @@ const Account = lazy(() => import('@/pages/Account'))
 const Login = lazy(() => import('@/pages/Login'))
 const Detail = lazy(() => import('@/pages/Detail'))
 const Coze = lazy(() => import('@/pages/Coze'))
-
+const TodoPage = lazy(() => import('@/pages/TodoPage'))
 
 import './App.css'
 

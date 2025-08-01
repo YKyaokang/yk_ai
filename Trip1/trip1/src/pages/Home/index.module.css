@@ -1,0 +1,201 @@
+.container {
+  padding-bottom: 150px; /* 为底部导航留出空间 */
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 30px 40px 20px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+}
+
+.location {
+  display: flex;
+  align-items: center;
+}
+
+.locationIcon {
+  font-size: 32px;
+  margin-right: 10px;
+}
+
+.locationText {
+  font-size: 32px;
+  font-weight: 500;
+}
+
+.headerRight {
+  display: flex;
+  gap: 30px;
+}
+
+.icon {
+  font-size: 36px;
+  cursor: pointer;
+}
+
+.searchSection {
+  padding: 0 40px;
+  margin-top: -30px;
+  position: relative;
+  z-index: 2;
+}
+
+.searchBar {
+  display: flex;
+  align-items: center;
+  background: white;
+  border-radius: 50px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  padding: 25px 40px;
+}
+
+.searchIcon {
+  font-size: 32px;
+  margin-right: 20px;
+  color: #999;
+}
+
+.searchInput {
+  flex: 1;
+  font-size: 28px;
+  color: #333;
+}
+
+.searchInput::placeholder {
+  color: #999;
+}
+
+.bannerSection {
+  padding: 40px;
+  margin-top: 30px;
+}
+
+.banner {
+  position: relative;
+  border-radius: 20px;
+  overflow: hidden;
+  height: 400px;
+}
+
+.bannerImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.bannerOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.1));
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: white;
+}
+
+.bannerTitle {
+  font-size: 48px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.bannerSubtitle {
+  font-size: 28px;
+  opacity: 0.9;
+}
+
+.menuSection {
+  padding: 40px;
+}
+
+.menuGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 40px;
+}
+
+.menuItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.menuItem:active {
+  transform: scale(0.95);
+}
+
+.menuIcon {
+  font-size: 48px;
+  margin-bottom: 15px;
+  background: #f8f9fa;
+  width: 120px;
+  height: 120px;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.menuText {
+  font-size: 24px;
+  color: #333;
+}
+
+.recommendSection {
+  padding: 40px;
+}
+
+.sectionTitle {
+  font-size: 36px;
+  font-weight: bold;
+  margin-bottom: 30px;
+  color: #333;
+}
+
+.recommendList {
+  display: flex;
+  gap: 30px;
+  overflow-x: auto;
+  padding-bottom: 20px;
+}
+
+.recommendItem {
+  flex-shrink: 0;
+  width: 500px;
+  background: white;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.recommendImage {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+}
+
+.recommendInfo {
+  padding: 30px;
+}
+
+.recommendTitle {
+  font-size: 28px;
+  font-weight: 500;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.recommendPrice {
+  font-size: 32px;
+  color: #ff6b6b;
+  font-weight: bold;
+}

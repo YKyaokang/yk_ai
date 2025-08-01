@@ -49,7 +49,8 @@ README.md 很重要 方便面试官
 
 ## 开发前的准备
 - 安装的包
-    react-router-dom zustand axios @react-vant/icons
+    react-router-dom zustand axios 
+    @react-vant/icons
     react-vant （第三方UI组件库）  lib-flexible  适配移动端
     开发期间的依赖
     jwt  vite-plugin-mock 

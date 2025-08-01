@@ -17,7 +17,7 @@ const Recommand = () => {
         const observer = new IntersectionObserver(([entry], obs) => {
             if (entry.isIntersecting && !loading) {
                 fetchRecommands()
-                console.log(recommands)
+                // console.log(recommands)
             }
         })   
         if (loader.current) observer.observe(loader.current)
@@ -26,9 +26,11 @@ const Recommand = () => {
 
     return (
         <div className={styles.recommand_container}>
+            
             <div className={styles.title}>
                 <img src={RecommandAdv} alt="RecommandAdv" className={styles.recommand_adv} />
             </div>
+
             <div className={styles.waterfall_wrapper}>
                 <div className={styles.column}> 
                     {

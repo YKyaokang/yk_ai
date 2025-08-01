@@ -1,0 +1,153 @@
+/* 图标样式管理 */
+
+/* 图标字体基础类 */
+.icon {
+  display: inline-block;
+  font-style: normal;
+  vertical-align: baseline;
+  text-align: center;
+  text-transform: none;
+  line-height: 1;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* 图标尺寸 */
+.icon-xs { font-size: 24px; }
+.icon-sm { font-size: 28px; }
+.icon-md { font-size: 32px; }
+.icon-lg { font-size: 36px; }
+.icon-xl { font-size: 40px; }
+.icon-xxl { font-size: 48px; }
+
+/* 图标颜色 */
+.icon-primary { color: #1890ff; }
+.icon-success { color: #52c41a; }
+.icon-warning { color: #faad14; }
+.icon-danger { color: #ff4d4f; }
+.icon-info { color: #13c2c2; }
+.icon-gray { color: #666; }
+.icon-light-gray { color: #999; }
+.icon-white { color: white; }
+
+/* 圆形图标背景 */
+.icon-circle {
+  width: 1.5em;
+  height: 1.5em;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #f0f0f0;
+}
+
+.icon-circle.icon-primary { background-color: #1890ff; color: white; }
+.icon-circle.icon-success { background-color: #52c41a; color: white; }
+.icon-circle.icon-warning { background-color: #faad14; color: white; }
+.icon-circle.icon-danger { background-color: #ff4d4f; color: white; }
+
+/* 带动画的图标 */
+.icon-spin {
+  animation: icon-spin 1s infinite linear;
+}
+
+@keyframes icon-spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.icon-bounce {
+  animation: icon-bounce 1s infinite ease-in-out;
+}
+
+@keyframes icon-bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+/* 常用图标映射（使用 Emoji 作为图标） */
+.icon-home::before { content: '🏠'; }
+.icon-search::before { content: '🔍'; }
+.icon-user::before { content: '👤'; }
+.icon-heart::before { content: '❤️'; }
+.icon-star::before { content: '⭐'; }
+.icon-location::before { content: '📍'; }
+.icon-phone::before { content: '📞'; }
+.icon-message::before { content: '💬'; }
+.icon-camera::before { content: '📷'; }
+.icon-share::before { content: '📤'; }
+.icon-setting::before { content: '⚙️'; }
+.icon-close::before { content: '✕'; }
+.icon-check::before { content: '✓'; }
+.icon-arrow-right::before { content: '→'; }
+.icon-arrow-left::before { content: '←'; }
+.icon-arrow-up::before { content: '↑'; }
+.icon-arrow-down::before { content: '↓'; }
+
+/* 旅行相关图标 */
+.icon-plane::before { content: '✈️'; }
+.icon-hotel::before { content: '🏨'; }
+.icon-car::before { content: '🚗'; }
+.icon-train::before { content: '🚄'; }
+.icon-bus::before { content: '🚌'; }
+.icon-ticket::before { content: '🎫'; }
+.icon-beach::before { content: '🏖️'; }
+.icon-mountain::before { content: '⛰️'; }
+.icon-map::before { content: '🗺️'; }
+.icon-compass::before { content: '🧭'; }
+.icon-luggage::before { content: '🧳'; }
+.icon-passport::before { content: '📘'; }
+
+/* 功能图标 */
+.icon-add::before { content: '➕'; }
+.icon-minus::before { content: '➖'; }
+.icon-edit::before { content: '✏️'; }
+.icon-delete::before { content: '🗑️'; }
+.icon-download::before { content: '⬇️'; }
+.icon-upload::before { content: '⬆️'; }
+.icon-refresh::before { content: '🔄'; }
+.icon-filter::before { content: '🔧'; }
+.icon-sort::before { content: '📊'; }
+.icon-menu::before { content: '☰'; }
+
+/* 状态图标 */
+.icon-loading::before { content: '⏳'; }
+.icon-success::before { content: '✅'; }
+.icon-error::before { content: '❌'; }
+.icon-warning::before { content: '⚠️'; }
+.icon-info::before { content: 'ℹ️'; }
+
+/* 社交图标 */
+.icon-like::before { content: '👍'; }
+.icon-comment::before { content: '💬'; }
+.icon-share-social::before { content: '📢'; }
+.icon-follow::before { content: '➕'; }
+.icon-unfollow::before { content: '➖'; }
+
+/* 图标组合样式 */
+.icon-with-text {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.icon-with-badge {
+  position: relative;
+}
+
+.icon-badge {
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  background: #ff4d4f;
+  color: white;
+  border-radius: 50%;
+  min-width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  font-weight: bold;
+}

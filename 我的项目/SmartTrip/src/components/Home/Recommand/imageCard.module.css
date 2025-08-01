@@ -1,11 +1,14 @@
 /* ImageCard 样式 */
 .image_card {
-  background: #fff;
-  border-radius: 12px;
+  background: #fafafa;
+  border-radius: 20px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   margin-bottom: 16px;
   overflow: hidden;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
 }
 
 .image_card:hover {
@@ -17,6 +20,7 @@
   position: relative;
   width: 100%;
   overflow: hidden;
+  flex-shrink: 0;
 }
 
 .img {
@@ -33,12 +37,15 @@
 
 .card_content {
   padding: 12px 16px 16px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
 }
 
 .title {
-  font-size: 16px;
+  font-size: 18px;
   font-weight: 600;
-  color: #333;
+  color: #2c3e50;
   margin: 0 0 8px 0;
   line-height: 1.4;
   overflow: hidden;
@@ -60,8 +67,8 @@
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
-  flex-wrap: wrap;
   gap: 8px;
+  margin-top: auto;
 }
 
 .price_section {
@@ -76,11 +83,12 @@
 
 .stats {
   display: flex;
-  flex-direction: column;
-  gap: 4px;
-  font-size: 12px;
-  color: #999;
-  text-align: right;
+  flex-direction: row;
+  align-items: center;
+  gap: 12px;
+  font-size: 13px;
+  color: #666;
+  flex-shrink: 0;
 }
 
 .score,
@@ -88,32 +96,16 @@
 .like {
   display: flex;
   align-items: center;
-  gap: 2px;
+  gap: 4px;
+  font-weight: 500;
+  white-space: nowrap;
+  transition: color 0.2s ease;
 }
 
-/* 响应式设计 */
-@media (max-width: 768px) {
-  .image_card {
-    margin-bottom: 12px;
-  }
-  
-  .card_content {
-    padding: 10px 12px 12px;
-  }
-  
-  .title {
-    font-size: 15px;
-  }
-  
-  .location {
-    font-size: 13px;
-  }
-  
-  .price {
-    font-size: 16px;
-  }
-  
-  .stats {
-    font-size: 11px;
-  }
+.score:hover,
+.comments:hover,
+.like:hover {
+  color: #ff6b35;
 }
+
+/* 移除媒体查询，使用更灵活的响应式设计 */
