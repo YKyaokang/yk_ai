@@ -1,46 +1,42 @@
 import { useEffect, useRef } from 'react'
-import styles from './recommand.module.css'
-import ImageCard from './imageCard'
-import { useRecommandStore } from '@/store/useRecommandStore'
-import RecommandAdv from '@/assets/home-adver/生成横幅.png'
-
-const Recommand = () => {
-    const { recommands, loading, fetchRecommands } = useRecommandStore()
+import styles from './suggest.module.css'
+import ArticleCard from './imageCard'
+import { useArticlesStore } from '@/store/useArticlesStore'
+import 广告 from '@/assets/strategy/stragety广告.png'
+const Suggest = () => {
+    const { articles, loading, fetchArticles } = useArticlesStore()
     const loader = useRef(null)
     
+    useEffect(() => {
+        fetchArticles()
+    }, [])
 
     useEffect(() => {
         // 监听加载更多的观察者
         const observer = new IntersectionObserver(([entry], obs) => {
             if (entry.isIntersecting && !loading) {
-                fetchRecommands()
-                // console.log(recommands)
+                fetchArticles()
             }
         })   
         if (loader.current) observer.observe(loader.current)
         return () => observer.disconnect()
-    }, [loading, fetchRecommands])
+    }, [loading, fetchArticles])
 
     return (
-        <div className={styles.recommand_container}>
-            
-            <div className={styles.title}>
-                <img src={RecommandAdv} alt="RecommandAdv" className={styles.recommand_adv} />
-            </div>
-
+        <div className={styles.suggest_container}>
+            <img src={广告} alt="广告" className={styles.advertising} />
             <div className={styles.waterfall_wrapper}>
-                <div className={styles.column}> 
+                <div className={styles.column}>
                     {
-                        recommands.filter((_, i) => i % 2 === 0).map(
+                        articles.filter((_, i) => i % 2 === 0).map(
                             item => (
-                                <ImageCard 
+                                <ArticleCard 
                                     key={item.id} 
                                     image={item.image}
-                                    title={item.title}
                                     location={item.location}
-                                    price={item.price}
-                                    comments={item.comments}
-                                    score={item.score}
+                                    description={item.description}
+                                    avatar={item.avatar}
+                                    nickname={item.nickname}
                                     like={item.like}
                                 />
                             )
@@ -49,16 +45,15 @@ const Recommand = () => {
                 </div>
                 <div className={styles.column}>
                     {
-                        recommands.filter((_, i) => i % 2 !== 0).map(
+                        articles.filter((_, i) => i % 2 !== 0).map(
                             item => (
-                                <ImageCard 
+                                <ArticleCard 
                                     key={item.id} 
                                     image={item.image}
-                                    title={item.title}
                                     location={item.location}
-                                    price={item.price}
-                                    comments={item.comments}
-                                    score={item.score}
+                                    description={item.description}
+                                    avatar={item.avatar}
+                                    nickname={item.nickname}
                                     like={item.like}
                                 />
                             )
@@ -72,4 +67,5 @@ const Recommand = () => {
         </div>
     )
 }
-export default Recommand;
+
+export default Suggest
