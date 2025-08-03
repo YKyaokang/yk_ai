@@ -15,11 +15,15 @@
     color: #515767;
 }
 
+.searchInputContainer {
+    flex: 1;
+}
+
 
 .searchInput {
     flex: 1;
     background-color: transparent;
-
+    
 }
 
 

@@ -38,11 +38,20 @@ const Header = () => {
                     &nbsp;
                     <ArrowDown color="blue" size="20" />
                 </div>
+                <div className={styles.searchInputContainer} onClick={() => {
+                    navigate('/search')
+                }}>
                 <Search 
                         placeholder="搜索目的地/攻略" 
                         className={styles.searchInput}
                         shape="round"
+                        onClick={() => {
+                            navigate('/search')
+                        }}
                 />
+                </div>
+               
+                
             </div>
 
             <div className={styles.headerSelect}>

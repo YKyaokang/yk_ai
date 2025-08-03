@@ -20,6 +20,7 @@ const Account = lazy(() => import('@/pages/Account'))
 const Search = lazy(() => import('@/pages/Search'))
 const TodoPage = lazy(() => import('@/pages/TodoPage'))
 const Article = lazy(() => import('@/pages/Article'))
+const Login = lazy(() => import('@/pages/Login'))
 function App() {
   return (
     <>
@@ -38,6 +39,7 @@ function App() {
       </Route>
 
         <Route path='/' element={<BlankLayout />}>
+        <Route path='login' element={<Login />} />
         <Route path='search' element={<Search />} />
         <Route path='article/:id' element={<Article />} />
         <Route path='todopage' element={<TodoPage />} />

@@ -44,7 +44,9 @@ function SearchBox(props) {
     return (
         <>
         <div className={styles.header_left}>
-            <ArrowLeft  color="#6c6d72" />
+            <ArrowLeft  color="#6c6d72" onClick={() => {
+                window.history.back()
+            }}/>
             </div>
             <div className={styles.header_center}>
                 <input 

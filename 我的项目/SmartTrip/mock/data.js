@@ -1,5 +1,5 @@
 import Mock from 'mockjs';
-
+import jwt from 'jsonwebtoken';
 // 生成随机旅游景点数据的函数
 const getImages = (page, pageSize = 10) => {
     return Array.from({ length: pageSize }, (_, i) => {
@@ -76,8 +76,11 @@ const getArticles = (page, pageSize = 10) => {
         return randomData;
     });
 };
+// 加盐
+const secret = '!&124coddefgg'
 
-export default [{
+export default [
+    {
     // API: /api/images?page=1
     url: '/api/images',
     method: 'get',
@@ -104,8 +107,9 @@ export default [{
         console.log('Mock API response:', result);
         return result;
     }
-}, {
+}, 
     // API: /api/articles?page=1 - 旅游攻略文章数据
+    {
     url: '/api/articles',
     method: 'get',
     timeout: 1000,
@@ -133,7 +137,7 @@ export default [{
     }
 },
 // 热门推荐
-{
+    {
     url: '/api/hotlist',
     method: 'get',
     timeout: 1000,
@@ -167,13 +171,13 @@ export default [{
     }
 },
 // 搜索建议
-{
+    {
     url: '/api/search',
     method: 'get',
     timeout: 1000,
     response:(req, res) => {
         const keyword = req.query.keyword;
-        let num = Math.floor(Math.random() * 10);
+        let num = Math.floor(Math.random() * 10)+3;
         let list = [];
         for (let i = 0; i < num; i++) {
             // 随机内容
@@ -186,6 +190,65 @@ export default [{
         return {
             code: 0,
             data: list
+        }
+    }
+},
+// 登录
+    {
+    url: '/api/login',
+    method: 'post',
+    timeout: 1000,
+    response: (req, res) => {
+        const { username, password } = req.body;
+        if(username !== 'admin' || password !== '123456'){
+            return {
+                code: 40001,
+                message: '找不到账户',
+            }
+        }
+
+        // 生成jwt
+        const token = jwt.sign({
+            user: {
+                id: '001',
+                username: 'admin',
+            }
+        }, secret,{
+            expiresIn: '86400',
+        })
+        // 返回正确数据
+        return {
+            code: 200,
+            token,
+            data: {
+                id: '001',
+                data: {
+                    id: '001',
+                    username: 'admin',
+                }
+            }
+        }
+    }
+},
+// 获取用户信息
+{
+    url: '/api/user',
+    method: 'get',
+    response: (req, res) => {
+        // 用户端 token headers
+        
+        const token = req?.headers['authorization']?.split(' ')[1];
+        try {
+            const decode = jwt.verify(token, secret)
+            return {
+                code: 200,
+                data: decode.user
+            }
+        } catch (err) {
+            return {
+                code: 40003,
+                message: 'token失效，请重新登录'
+            }
         }
     }
 }
