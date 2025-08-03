@@ -1,0 +1,49 @@
+.scroll-container {
+    width: 100%;
+    overflow-x: auto; /* 启用横向滚动 */
+    overflow-y: hidden; /* 隐藏纵向滚动 */
+    -webkit-overflow-scrolling: touch; /* 在iOS上启用平滑滚动 */
+    touch-action: pan-x; /* 只允许横向平移，阻止纵向滚动 */
+    overscroll-behavior-x: contain; /* 防止横向滚动传播到父元素 */
+    overscroll-behavior-y: none; /* 防止纵向滚动传播 */
+    
+    /* 隐藏滚动条 */
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* IE 和 Edge */
+  }
+  
+  /* Webkit 内核浏览器 (Chrome, Safari) 隐藏滚动条 */
+  .scroll-container::-webkit-scrollbar {
+    display: none;
+  }
+  
+  .container {
+    display: flex; /* 使用弹性布局 */
+    flex-wrap: nowrap; /* 确保不换行 */
+    padding: 10px 0; /* 添加一些内边距 */
+    gap: 10px; /* 设置item之间的间隙 */
+    min-width: 100%; /* 确保容器至少占满宽度 */
+    will-change: transform; /* 优化滚动性能 */
+  }
+  
+  .item {
+    margin: 5px 10px;
+    padding: 5px 15px;
+    flex: 0 0 auto; /* 防止item伸缩 */
+    height: 50px; /* 设置item高度 */
+    background: #f8f8f8;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 25px;
+  }
+
+  .item .icon {
+    width: 35px;
+    }
+
+    .item span {
+        font-size: 24px;
+        font-weight: 500;
+    }

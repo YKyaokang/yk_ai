@@ -1,6 +1,6 @@
 import { useEffect, useRef } from 'react'
 import styles from './suggest.module.css'
-import ArticleCard from './imageCard'
+import ArticleCard from '@/components/Strategy/ArtcleCard'
 import { useArticlesStore } from '@/store/useArticlesStore'
 import 广告 from '@/assets/strategy/stragety广告.png'
 const Suggest = () => {
@@ -31,6 +31,7 @@ const Suggest = () => {
                         articles.filter((_, i) => i % 2 === 0).map(
                             item => (
                                 <ArticleCard 
+                                    id={item.id}
                                     key={item.id} 
                                     image={item.image}
                                     location={item.location}
@@ -48,6 +49,7 @@ const Suggest = () => {
                         articles.filter((_, i) => i % 2 !== 0).map(
                             item => (
                                 <ArticleCard 
+                                    id={item.id}
                                     key={item.id} 
                                     image={item.image}
                                     location={item.location}

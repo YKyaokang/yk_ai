@@ -1,0 +1,35 @@
+
+/* 通用样式 */
+.List {
+    padding-top: 25px;
+}
+
+.List_header {
+    display: flex;
+    margin-right: 10px;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.List_header span {
+    margin-left: 15px;
+    font-size: 34px
+}
+
+.List_content {
+    display: flex;
+    flex-wrap: wrap;
+    padding-top: 15px;
+    padding-left: 12px;
+    padding-right: 12px;
+    gap: 10px;
+}
+
+.List_item {
+    margin: 4px 7px;
+    padding: 5px 10px;
+    font-size: 28px;
+    color: #333333;
+    background-color: #f8f8f8;
+    border-radius: 10px;
+}

@@ -44,8 +44,23 @@ const getArticles = (page, pageSize = 10) => {
         // 生成地点图片
         const imageWidth = Mock.Random.integer(300, 400);
         const imageHeight = Mock.Random.integer(400, 600);
-        const imageUrl = `https://dummyimage.com/${imageWidth}x${imageHeight}/${imageBgColor}/ffffff.png&text=${encodeURIComponent('攻略')}${page}-${i}`;
+                const imageUrl = `https://dummyimage.com/${imageWidth}x${imageHeight}/${imageBgColor}/ffffff.png&text=${encodeURIComponent('攻略')}${page}-${i}`;
         
+        // 生成评论列表
+        const commentsCount = Mock.Random.integer(5, 20);
+        const comments = Array.from({ length: commentsCount }, (_, j) => {
+            const commentAvatarBgColor = Mock.Random.pick(avatarColors);
+            const commentAvatarUrl = `https://dummyimage.com/60x60/${commentAvatarBgColor}/ffffff.png&text=${encodeURIComponent('评')}`;
+            
+            return Mock.mock({
+                'id': `comment-${page}-${i}-${j}`,
+                'user_avatar': commentAvatarUrl,
+                'user_nickname': '@cname()',
+                'user_context': '@cparagraph(1, 3)', // 评论内容，1-3句话
+                'users_like': '@integer(0, 200)' // 评论点赞数 0-200
+            });
+        });
+
         const randomData = Mock.mock({
             'id': `article-${page}-${i}`,
             'image': imageUrl, // 地点图片
@@ -53,7 +68,9 @@ const getArticles = (page, pageSize = 10) => {
             'description': '@cparagraph(8, 12)', // 地名评价（一段话，2-4句）
             'avatar': avatarUrl, // 头像（小尺寸）
             'nickname': '@cname()', // 昵称
-            'like': '@integer(50, 2500)' // 点赞数 50-2500
+            'like': '@integer(50, 2500)', // 点赞数 50-2500
+            'comments': comments, // 评论列表
+            'isFocus': false // 是否关注，默认为false
         });
         
         return randomData;
@@ -114,7 +131,65 @@ export default [{
         console.log('Mock Articles API response:', result);
         return result;
     }
-}];
+},
+// 热门推荐
+{
+    url: '/api/hotlist',
+    method: 'get',
+    timeout: 1000,
+    response: (req, res) => {
+        return {
+            code: 0,
+            data:[{
+                id: '101',
+                city: "三叠泉"
+            },{
+                id: '102',
+                city: "庐山索道"
+            }, {
+                id: '103',
+                city: "索江楼"
+            },{
+                id: '104',
+                city: "宜春温泉"
+            },{
+                id: '105',
+                city: "81青年旅舍（八一馆地铁站店）"
+            },{
+                id: '106',
+                city: "婺源篁岭景区"
+            },{
+                id: '107',
+                city: "平潭的景点"
+            },
+        ]
+        }
+    }
+},
+// 搜索建议
+{
+    url: '/api/search',
+    method: 'get',
+    timeout: 1000,
+    response:(req, res) => {
+        const keyword = req.query.keyword;
+        let num = Math.floor(Math.random() * 10);
+        let list = [];
+        for (let i = 0; i < num; i++) {
+            // 随机内容
+            const randomData = Mock.mock({
+                title: '@ctitle'
+            })
+            list.push(`${randomData.title}${keyword}`)
+        }
+
+        return {
+            code: 0,
+            data: list
+        }
+    }
+}
+];
 
 
 

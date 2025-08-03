@@ -1,0 +1,30 @@
+export const list = [
+    {
+        iconName:'icon-tubiaozhizuomoban_jiudian',
+        name:'酒店'
+    },
+    {
+        iconName:'icon-tubiaozhizuomoban_feijipiao',
+        name:'飞机票'
+    },
+    {
+        iconName:'icon-tubiaozhizuomoban_ditu',
+        name:'景点'
+    },
+    {
+        iconName:'icon-tubiaozhizuomoban_zhinan',
+        name:'攻略'
+    },
+    {
+        iconName:'icon-tubiaozhizuomoban_meishi',
+        name:'美食'
+    },
+    {
+        iconName:'icon-tubiaozhizuomoban_bashi',
+        name:'客车'
+    },
+    {
+        iconName:'icon-tubiaozhizuomoban_fengjing',
+        name:'民宿'
+    },
+]

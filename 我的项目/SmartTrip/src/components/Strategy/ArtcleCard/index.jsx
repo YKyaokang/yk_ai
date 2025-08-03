@@ -1,6 +1,7 @@
 import { useRef, useEffect } from 'react'
-import styles from './imageCard.module.css'
+import styles from './artcle.module.css'
 import { LikeO, Location } from '@react-vant/icons'
+import { useNavigate } from 'react-router-dom'
 
 // 默认占位图
 const DEFAULT_PLACEHOLDER = 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxkZWZzPjxwYXR0ZXJuIGlkPSJwYXR0ZXJuIiB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBwYXR0ZXJuVW5pdHM9InVzZXJTcGFjZU9uVXNlIj48cGF0aCBkPSJNMjUgMEMxMS45IDAgMCAxMS45IDAgMjV2NTBDMCA4OC4xIDExLjkgMTAwIDI1IDEwMEg3NUM4OC4xIDEwMCAxMDAgODguMSAxMDAgNzVWMjVDMTAwIDExLjkgODguMSAwIDc1IDBINVUiIGZpbGw9IiMyMDIwMjAiLz48L3BhdHRlcm4+PC9kZWZzPjxyZWN0IHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9Im5vbmUiLz48L3N2Zz4=';
@@ -8,9 +9,9 @@ const DEFAULT_PLACEHOLDER = 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwJSIga
 const ERROR_PLACEHOLDER = 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxkZWZzPjxwYXR0ZXJuIGlkPSJwYXR0ZXJuIiB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBwYXR0ZXJuVW5pdHM9InVzZXJTcGFjZU9uVXNlIj48cGF0aCBkPSJNMjUgMEMxMS45IDAgMCAxMS45IDAgMjV2NTBDMCA4OC4xIDExLjkgMTAwIDI1IDEwMEg3NUM4OC4xIDEwMCAxMDAgODguMSAxMDAgNzVWMjVDMTAwIDExLjkgODguMSAwIDc1IDBINVUiIGZpbGw9IiMyMDIwMjAiLz48L3BhdHRlcm4+PC9kZWZzPjxyZWN0IHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9Im5vbmUiLz48L3N2Zz4=';
 
 const ArticleCard = (props) => {
-    const { image, location, description, avatar, nickname, like, placeholder = DEFAULT_PLACEHOLDER } = props
+    const { id, image, location, description, avatar, nickname, like, placeholder = DEFAULT_PLACEHOLDER } = props
     const imgRef = useRef(null)
-    
+    const navigate = useNavigate()
     useEffect(() => {
         const observer = new IntersectionObserver(([entry], obs) => {
             if (entry.isIntersecting) {
@@ -34,8 +35,12 @@ const ArticleCard = (props) => {
         if (imgRef.current) observer.observe(imgRef.current)
     }, [])
 
+    const handleClick = () => {
+        navigate(`/article/${id}`)
+    }
+
     return (
-        <div className={styles.article_card}>
+        <div className={styles.article_card} onClick={handleClick}>
             {/* 地点图片 */}
             <div className={styles.image_container}>
                 <img 
@@ -46,7 +51,9 @@ const ArticleCard = (props) => {
                     alt={location}
                 />
                 {/* 地点名称覆盖在图片上 */}
-                <h3 className={styles.location}><Location  />&nbsp;{location}</h3>
+                {location && location.length > 0 && (
+                    <h3 className={styles.location}><Location  />&nbsp;{location}</h3>
+                )}
             </div>
             
             {/* 卡片内容 */}
@@ -65,7 +72,7 @@ const ArticleCard = (props) => {
                         <span className={styles.nickname}>{nickname}</span>
                     </div>
                     <div className={styles.like_section}>
-                        <LikeO className={styles.like_icon} />
+                        <LikeO size={20} />
                         <span className={styles.like_count}>{like}</span>
                     </div>
                 </div>
