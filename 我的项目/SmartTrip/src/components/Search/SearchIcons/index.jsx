@@ -19,8 +19,8 @@ const SearchIcons = () => {
         >
             <div className={styles.container}>
                 {
-                    list.map(item => (
-                        <div className={styles.item}>
+                    list.map((item,index) => (
+                        <div className={styles.item} key={index}>
                             <svg className={styles.icon}>
                                 <use xlinkHref={`#${item.iconName}`}></use>
                             </svg>

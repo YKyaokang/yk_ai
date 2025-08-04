@@ -38,22 +38,57 @@ vite配置
 订单 定制 右上角 消息 扫码   登录  发送验证码
 
 ## Todo
-先完成登录页面 的表单 提交 使得能够成功存储登录信息
+实现不同页面的是否登录功能展示
 
-主页开发
-全局状态管理，已登录or未登录
-jwt实现登录
-模仿喻导之前的
-mock 能够使用jwt 返回jwt后的数据
+一般来说前端的REACT开发中，对于后端的'api/getUser'接口拿到的已经登录的用户信息是怎么处理的，每次对于一些需要登录才能查看的页面是 怎么鉴权的，是每次在这个页面中通过zustand的方法发送一次api/getUser，还是说在登录界面调用'api/login'之后，将这些信息存在哪个地方，对于鉴权的页面 直接查看这些信息来鉴权，这样做的话会不会出现一些问题呢，比如token过期了怎么办，请你解答我此类问题
+
+明天：
+刷完算法后 
+- **将捋一遍上面的思路**，实现路由守卫 关注功能
+- 完成登录功能的 跳转前一页 登录Toast 
+- 完成登录功能的路由守卫 后续需要路由守卫的地方 AI助手 个人主页 Toast提醒用户登录
+- 优化一些细节：当用户点击搜索时 查看用户是否 登录
+- 开发主页，
+- 时间多写卡片
+
+理解：
+所以我想做的事是：在zustand为useStore 设置一个user表示当前的用户信息，然后在设置一个checkAuth的方法：先用查看当前是否有token和用户信息，如果有token的话但是用户信息为null,那么则 发送一次getUser看当前的token是否有效，如果有的话就设置user为当前的user，如果用户信息不为null的话，那么就啥也不用干，直接设置loading为false,加载当前的页面即可。但是我认为这样子有一个bug：如果token的过期时间为3小时，用户在浏览器待的时间都有3小时以上了，比如第四个小时，由于user一直是有的，所以在checkAuth也没有通过getUser去看token是否有效，导致用户的token实际上已经过期了，但用户还能登。但是当用户此时刷新网页或者重新进浏览器时，这个问题就能得到解决，重新进浏览器时，user会初始化为null，此时checkAuth就会从调用getUser去查看token是否过期，检查到第四个小时了，已经超过了3小时，所以就能让用户重新登录。我的理解正确吗
 
 
+对于搜索组件 当用户点击搜索时，检查用户是否登录
 
-## 痛苦点
-登录的一些功能没搞
-- 在useLogin的store中是否要加isLogin，还是说在各种各样的页面中（包括路由守卫）查看是否需要isLogin（用响应式状态） 
 
-- 登录界面不太好看
+骨架屏思路
 
+  <!-- useEffect(() => {
+    const checkAuth = async () => {
+      try {
+        // 如果内存中没有用户信息，但有token，尝试获取用户信息
+        if (!user && localStorage.getItem('token')) {
+          const currentUser = await authService.getCurrentUser()
+          if (currentUser) {
+            setUser(currentUser, localStorage.getItem('token'))
+          }
+        }
+      } catch (error) {
+        console.error('认证检查失败:', error)
+        authService.logout()
+      } finally {
+        setLoading(false)
+      }
+    }
+
+    checkAuth()
+  }, [user, setUser])
+
+  if (loading) {
+    return <div>加载中...</div>
+  }
+
+  
+  if (!isAuthenticated) {
+    return <Navigate to="/login" replace />
+  } -->
 
 
 ### day1(8.1)
@@ -82,7 +117,7 @@ TODO 长按帖子 提示不喜欢这篇 就去除当前的帖子
 时间多 搜索页面开发
 时间多写文章
 
-## 难点：
+### 难点：
 - 搜索组件 防抖节流 受控组件 返回给父级元素 父级元素负责在useEffect拿去数据
 - 暂定 当前localStorage的历史搜索：未登录 则隐藏  用zustand封装 制定一个fetchData的方法拿历史数据
 - 热门推荐 mock拿数据 同样用zustand封装
@@ -97,11 +132,29 @@ Todo 加上推荐卡片
 Todo 更改样式
 Todo 性能优化
 
+## day3(8.3)
+先完成登录页面 的表单 提交 使得能够成功存储登录信息
+
+主页开发
+全局状态管理，已登录or未登录
+jwt实现登录
+模仿喻导之前的
+mock 能够使用jwt 返回jwt后的数据
+
+
+
+### 痛苦点
+登录的一些功能没搞
+- 在useLogin的store中是否要加isLogin，还是说在各种各样的页面中（包括路由守卫）查看是否需要isLogin（用响应式状态） 
+
+- 登录界面不太好看
+
 ## 全局Todo
 - 各式各样的性能优化：memo 
 - useTitle
 - 加载页
 - 未开发页面的
+- 骨架屏
 - 404页面的构造
 
 ### 痛苦点：

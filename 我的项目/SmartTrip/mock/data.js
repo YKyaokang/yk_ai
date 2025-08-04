@@ -84,7 +84,7 @@ export default [
     // API: /api/images?page=1
     url: '/api/images',
     method: 'get',
-    timeout: 1000,
+    timeout: 500,
     response: (req, res) => {
         console.log('Mock API called:', req.url, req.query);
         const page = Number(req.query.page) || 1;
@@ -197,7 +197,6 @@ export default [
     {
     url: '/api/login',
     method: 'post',
-    timeout: 1000,
     response: (req, res) => {
         const { username, password } = req.body;
         if(username !== 'admin' || password !== '123456'){
@@ -232,6 +231,7 @@ export default [
 },
 // 获取用户信息
 {
+    timeout: 1000,
     url: '/api/user',
     method: 'get',
     response: (req, res) => {
@@ -254,8 +254,3 @@ export default [
 }
 ];
 
-
-
-// 1.分析有哪些字段
-// id 图片 地名 地名评价（一段话） 头像(小尺寸) 昵称 点赞数 current pageSize total
-// 2. mock模拟生成数据

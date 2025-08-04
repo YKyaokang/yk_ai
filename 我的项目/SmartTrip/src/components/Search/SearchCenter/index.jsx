@@ -1,7 +1,7 @@
 import { useEffect } from 'react'
 import styles from './searchcenter.module.css'
 import useSearchStore from '@/store/useSearchStore'
-
+import { DeleteO } from '@react-vant/icons'
 const SearchCenter = () => {
     const { searchHistory,clearSearchHistory,hotList,getHostList} = useSearchStore()
     

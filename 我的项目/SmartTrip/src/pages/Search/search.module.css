@@ -12,7 +12,7 @@
 }
 
 
-/* 主要内容区域 */
+/* 主要内容区域:由于搜索框是fixed定位，所以内容区域需要有padding-top */
 .content {
     padding-top: 95px;
 }
@@ -21,33 +21,22 @@
 
 /* 搜索建议样式 */
 .SearchSuggest {
-    position: fixed;
+    position: absolute;
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
     background: linear-gradient(to bottom, #ffffff 0%, #f8f9fa 100%);
     z-index: 1000;
-    padding-top: 85px; 
+    padding-top: 95px; 
     padding-bottom: 20px;
     overflow-y: auto; 
     backdrop-filter: blur(10px);
-    animation: slideInFromTop 0.3s ease-out;
 }
 
-@keyframes slideInFromTop {
-    from {
-        opacity: 0;
-        transform: translateY(-20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
 
 .SearchContent {
-    padding: 20px;
+    padding: 20px 0px;
     position: relative;
     width: 100%;
     height: 100%;
@@ -62,7 +51,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background: rgba(255, 255, 255, 0.9);
+    background: rgba(255, 255, 255, 1);
     backdrop-filter: blur(5px);
     z-index: 10;
 }
@@ -87,27 +76,27 @@
 }
 
 .SearchSuggest_item {
-    padding: 15px 20px;
-    margin: 8px 15px;
+    display: flex;
+    padding: 18px 20px;
     font-size: 30px;
-    color: #333;
+    color: #313131;
+    font-weight: 600;
     background-color: #fff;
-    border: 1px solid #e8e8e8;
-    border-radius: 30px;
+    
     cursor: pointer;
+    border-bottom: 1px solid #e8e8e8;
     transition: all 0.3s ease;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    /* box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05); */
+}
+.SearchSuggest_item .text {
+    flex: 1;
+    margin: 0 10px;
+}
+.SearchSuggest_item span {
+    display: inline-block;
+    vertical-align: middle;
+    font-size: 40px;
 }
 
-.SearchSuggest_item:hover {
-    background-color: #f8f9ff;
-    border-color: #3b85ee;
-    transform: translateY(-1px);
-    box-shadow: 0 4px 12px rgba(59, 133, 238, 0.15);
-}
 
-.SearchSuggest_item:active {
-    transform: translateY(0);
-    box-shadow: 0 2px 6px rgba(59, 133, 238, 0.2);
-}
 

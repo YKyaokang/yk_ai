@@ -11,6 +11,7 @@ import {
 import MainLayout from '@/components/layout/MainLayout'
 import BlankLayout from '@/components/layout/BlankLayout'
 import Loading from '@/components/Loading'
+import Protect from '@/components/Protect'
 const Suggest = lazy(() => import('@/pages/Suggest'))
 const Like = lazy(() => import('@/pages/Like'))
 const Home = lazy(() => import('@/pages/Home'))
@@ -31,7 +32,12 @@ function App() {
           <Route path='home' element={<Home />} />
           <Route path='strategy' element={<Strategy />}>
             <Route index element={<Suggest />} />  {/*默认显示推荐内容*/}
-            <Route path='like' element={<Like />}/>  {/*关注内容*/}
+            {/*关注内容*/}
+            <Route path='like' element={
+                <Protect>
+                <Like />
+                </Protect>
+            }/>
             <Route path='suggest' element={<Suggest />} />  {/*推荐内容 */}
           </Route>
           <Route path='smart' element={<Smart />} />

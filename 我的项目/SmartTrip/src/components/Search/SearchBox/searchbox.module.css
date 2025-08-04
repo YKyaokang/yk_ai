@@ -1,9 +1,7 @@
 .header {
-
     display: flex;
     align-items: center;
     padding: 15px;
-    
 }
 
 .header_left {
@@ -48,4 +46,5 @@
     background: linear-gradient(to right, #3b85ee, #5fb5f8);;
     border-radius: 30px;
     font-size: 25px;
+    font-weight: 550;
 }

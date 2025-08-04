@@ -3,15 +3,17 @@ import {
     useEffect,
     useRef,
     useMemo,
-    memo
+    memo,
  } from 'react'
-
+import { useNavigate } from 'react-router-dom'
+import { useUserStore } from '@/store/useUserStore'
 import styles from './searchbox.module.css'
 import useSearchStore from '@/store/useSearchStore'
 import { ArrowLeft,Close } from '@react-vant/icons'
 import { debounce } from '@/utils/debounce'
 
 function SearchBox(props) {
+    const {checkAuth} = useUserStore()
     const { updateSearchHistory } = useSearchStore()
     let iptRef = useRef(null)
     const [text,setText] = useState('')
@@ -30,15 +32,24 @@ function SearchBox(props) {
 
     const handleDataDebounce = useMemo(() => debounce(handleData, 500),[])
     const displayStyle = {display: text ? 'block' : 'none'}
+    const navigate = useNavigate()
 
     useEffect(() => {
         handleDataDebounce(text)
     }, [text])
 
     const searchClick = () => {
-        if(text.trim() !== ''){
-            updateSearchHistory(text)
+        const check = async () => {
+            const res = await checkAuth()
+            if(!res)
+            {
+                navigate('/login')
+            }
+            if(text.trim() !== ''){
+                updateSearchHistory(text)
+            }
         }   
+        check()
     }
 
     return (
