@@ -11,7 +11,7 @@ export const useUserStore = create((set,get) => ({
             const { token, data: user } = data;
             localStorage.setItem('token', token);
             set({
-                user,
+                user: user.data,
                 isLogin: true,
             })
         }

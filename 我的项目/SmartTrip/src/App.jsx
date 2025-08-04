@@ -41,7 +41,11 @@ function App() {
             <Route path='suggest' element={<Suggest />} />  {/*推荐内容 */}
           </Route>
           <Route path='smart' element={<Smart />} />
-          <Route path='account' element={<Account />} />    
+          <Route path='account' element={
+            <Protect>
+            <Account />
+            </Protect>
+          } />    
       </Route>
 
         <Route path='/' element={<BlankLayout />}>

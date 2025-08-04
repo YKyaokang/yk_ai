@@ -1,15 +1,18 @@
 import styles from './account.module.css'
+import Header from '@/components/Account/Header'
+import Center from '@/components/Account/Center'
+import Footer from '@/components/Account/Footer'
 const Account = () => {
     return (
         <div className={styles.container}>
             <div className={styles.header}>
-                头
+                <Header />
             </div>
             <div className={styles.content}>
-                中
+                <Center />
             </div>
             <div className={styles.footer}>
-                尾
+                <Footer />
             </div>
         </div>
 

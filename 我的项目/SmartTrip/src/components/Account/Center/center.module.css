@@ -1,0 +1,51 @@
+.center {
+    margin: 15px;
+    padding: 15px;
+    background-color: #ffffff;
+    border-radius: 20px;
+}
+
+.adv {
+    display: flex;
+    padding-bottom: 5px;
+    align-items: center;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #e5e5e5;
+}
+
+.adv .text {
+    font-size: 22px;
+    font-weight: 550;
+}
+
+.adv .text span {
+    color: #09dcf3cd;
+}
+
+
+.wechat svg {
+    width: 40px;
+    height: 50px;
+}
+
+.content {
+    display: flex;
+    margin-top: 28px;
+    justify-content: space-around;
+}
+
+.content_item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 24px;
+    font-weight: 550;
+}
+
+.content_item_icon svg {
+    width: 60px;
+    height: 60px;
+}
+
+
