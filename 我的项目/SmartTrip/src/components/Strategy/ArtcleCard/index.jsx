@@ -1,4 +1,4 @@
-import { useRef, useEffect } from 'react'
+import { useRef, useEffect, memo } from 'react'
 import styles from './artcle.module.css'
 import { LikeO, Location } from '@react-vant/icons'
 import { useNavigate } from 'react-router-dom'
@@ -81,4 +81,4 @@ const ArticleCard = (props) => {
     )
 }
 
-export default ArticleCard
+export default memo(ArticleCard)

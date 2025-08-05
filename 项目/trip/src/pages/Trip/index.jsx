@@ -37,108 +37,6 @@ const Trip = () => {
             content: 'hello, I am your assistant. What can I do for you?',
             role: 'assistant',
         },
-        {
-            id: 2,
-            content: 'hello~',
-            role: 'user'
-        },
-        {
-            id: 1,
-            content: 'hello, I am your assistant. What can I do for you?',
-            role: 'assistant',
-        },
-        {
-            id: 2,
-            content: 'hello~',
-            role: 'user'
-        },
-        {
-            id: 1,
-            content: 'hello, I am your assistant. What can I do for you?',
-            role: 'assistant',
-        },
-        {
-            id: 2,
-            content: 'hello~',
-            role: 'user'
-        },
-        {
-            id: 1,
-            content: 'hello, I am your assistant. What can I do for you?',
-            role: 'assistant',
-        },
-        {
-            id: 2,
-            content: 'hello~',
-            role: 'user'
-        },
-        {
-            id: 1,
-            content: 'hello, I am your assistant. What can I do for you?',
-            role: 'assistant',
-        },
-
-        {
-            id: 2,
-            content: 'hello~',
-            role: 'user'
-        },
-        {
-            id: 1,
-            content: 'hello, I am your assistant. What can I do for you?',
-            role: 'assistant',
-        },
-        {
-            id: 2,
-            content: 'hello~',
-            role: 'user'
-        },
-        {
-            id: 1,
-            content: 'hello, I am your assistant. What can I do for you?',
-            role: 'assistant',
-        },
-        {
-            id: 2,
-            content: 'hello~',
-            role: 'user'
-        },
-        {
-            id: 1,
-            content: 'hello, I am your assistant. What can I do for you?',
-            role: 'assistant',
-        },
-        {
-            id: 2,
-            content: 'hello~',
-            role: 'user'
-        },
-        {
-            id: 1,
-            content: 'hello, I am your assistant. What can I do for you?',
-            role: 'assistant',
-        },
-        {
-            id: 2,
-            content: 'hello~',
-            role: 'user'
-        },
-        {
-            id: 1,
-            content: 'hello, I am your assistant. What can I do for you?',
-            role: 'assistant',
-        },
-        {
-            id: 2,
-            content: 'hello~',
-            role: 'user'
-        },
-        {
-            id: 1,
-            content: 'hello, I am your assistant. What can I do for you?',
-            role: 'assistant',
-        },
-        
     ])
     const handleChat = async () => {
         if (text.trim() === "") {
@@ -197,7 +95,9 @@ const Trip = () => {
                 />  
                 <Button disabled={isSending} type="primary" onClick={handleChat} >发送</Button>
             </div>
+            
             {isSending && <div className='fixed-loading'><Loading color='blue' /></div>}
+
             <Popup visible={visible} onClose={() => setVisible(false)}>
             <div style={{ padding: '30px 50px' }}>非法操作：您未输入内容</div>
             </Popup>

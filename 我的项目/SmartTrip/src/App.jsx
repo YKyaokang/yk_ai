@@ -1,4 +1,3 @@
-import {useEffect} from 'react'
 import {
   lazy,
   Suspense
@@ -22,38 +21,48 @@ const Search = lazy(() => import('@/pages/Search'))
 const TodoPage = lazy(() => import('@/pages/TodoPage'))
 const Article = lazy(() => import('@/pages/Article'))
 const Login = lazy(() => import('@/pages/Login'))
+const NotFound = lazy(() => import('@/pages/NotFound'))
+const SmartService = lazy(() => import('@/pages/SmartService'))
 function App() {
   return (
     <>
     <Suspense fallback={<Loading />}>
       <Routes>
+
       <Route path='/' element={<MainLayout />} >
           <Route path='/' element={<Navigate to='/home' />} />
           <Route path='home' element={<Home />} />
           <Route path='strategy' element={<Strategy />}>
-            <Route index element={<Suggest />} />  {/*默认显示推荐内容*/}
-            {/*关注内容*/}
+            <Route index element={<Suggest />} /> 
             <Route path='like' element={
                 <Protect>
                 <Like />
                 </Protect>
             }/>
-            <Route path='suggest' element={<Suggest />} />  {/*推荐内容 */}
+            <Route path='suggest' element={<Suggest />} />  
           </Route>
-          <Route path='smart' element={<Smart />} />
-          <Route path='account' element={
+          <Route path='smart' element={
             <Protect>
-            <Account />
+            <Smart />
             </Protect>
-          } />    
+          } />
+          <Route path='account' element={
+              <Protect>
+              <Account />
+              </Protect>
+          } />
       </Route>
 
-        <Route path='/' element={<BlankLayout />}>
+      <Route path='/' element={<BlankLayout />}>
         <Route path='login' element={<Login />} />
         <Route path='search' element={<Search />} />
         <Route path='article/:id' element={<Article />} />
         <Route path='todopage' element={<TodoPage />} />
-        </Route>
+        <Route path='smartService' element={<SmartService />} />
+      </Route>
+
+      <Route path='*' element={<NotFound />} />    
+
       </Routes>
     </Suspense>
     </>

@@ -1,5 +1,5 @@
+import {memo} from 'react'
 import styles from './header.module.css'
-
 import { Search } from 'react-vant'
 import { ArrowDown } from '@react-vant/icons'
 import { useNavigate } from 'react-router-dom'
@@ -78,4 +78,4 @@ const Header = () => {
     )
 }
 
-export default Header
+export default memo(Header)

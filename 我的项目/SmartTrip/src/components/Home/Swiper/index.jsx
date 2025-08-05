@@ -1,3 +1,4 @@
+import {memo} from 'react'
 import styles from './swiper.module.css'
 import { Swiper, Image } from 'react-vant';
 // 引入home-swiper目录中的7张图片
@@ -49,4 +50,4 @@ const SwiperComponent = () => {
         </>
     )
 }
-export default SwiperComponent
+export default memo(SwiperComponent)

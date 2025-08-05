@@ -75,10 +75,6 @@ const Service = () => {
             <p className={styles.serviceStatus}>在线 - 专业旅行顾问</p>
           </div>
         </div>
-        <div className={styles.serviceActions}>
-          <button className={styles.callBtn}>📞 语音通话</button>
-          <button className={styles.videoBtn}>📹 视频通话</button>
-        </div>
       </div>
 
       {/* 常见问题 */}

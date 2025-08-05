@@ -140,7 +140,6 @@ export default [
     {
     url: '/api/hotlist',
     method: 'get',
-    timeout: 1000,
     response: (req, res) => {
         return {
             code: 0,
@@ -174,7 +173,7 @@ export default [
     {
     url: '/api/search',
     method: 'get',
-    timeout: 1000,
+    timeout: 100,
     response:(req, res) => {
         const keyword = req.query.keyword;
         let num = Math.floor(Math.random() * 10)+3;

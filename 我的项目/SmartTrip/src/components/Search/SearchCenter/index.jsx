@@ -1,8 +1,8 @@
-import { useEffect } from 'react'
+import { memo, useEffect } from 'react'
 import styles from './searchcenter.module.css'
 import useSearchStore from '@/store/useSearchStore'
 import { DeleteO } from '@react-vant/icons'
-const SearchCenter = () => {
+const SearchCenter = memo(() => {
     const { searchHistory,clearSearchHistory,hotList,getHostList} = useSearchStore()
     
     const clearHistory = () => {
@@ -48,5 +48,5 @@ const SearchCenter = () => {
 
         </>
     )
-}
-export default SearchCenter
+})
+export default memo(SearchCenter)

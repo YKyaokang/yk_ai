@@ -1,3 +1,4 @@
+import { memo } from 'react'
 import styles from './searchicons.module.css'
 import { list } from './list'
 const SearchIcons = () => {
@@ -35,4 +36,4 @@ const SearchIcons = () => {
         </>
     )
 }
-export default SearchIcons
+export default memo(SearchIcons)

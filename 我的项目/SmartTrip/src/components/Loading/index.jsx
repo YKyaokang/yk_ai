@@ -3,7 +3,8 @@ import {memo} from 'react'
 const Loading = () => {
     return (
         <div className={styles.wrapper}>
-            加载中哈哈
+            <div></div>
+            <div></div>
         </div>
     )
 }

@@ -1,4 +1,4 @@
-import { useEffect,useState } from 'react'
+import { useState } from 'react'
 import { Search as SearchIcon } from '@react-vant/icons';
 import { Arrow } from '@react-vant/icons';
 import styles from './search.module.css'

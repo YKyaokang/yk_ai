@@ -1,3 +1,4 @@
+import {memo} from 'react'
 import styles from './adver.module.css'
 
 // 引入home-adver目录中的4张图片
@@ -42,4 +43,4 @@ const Adver = () => {
         </>
     )
 }
-export default Adver
+export default memo(Adver)

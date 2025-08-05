@@ -1,7 +1,7 @@
 import { useParams, useNavigate } from 'react-router-dom';
 import { useEffect } from 'react';
 import { useArticlesStore } from '@/store/useArticlesStore';
-import { ArrowLeft, Plus } from '@react-vant/icons';
+import { ArrowLeft } from '@react-vant/icons';
 import { Button } from 'react-vant';
 import { LikeO, CommentO, LocationO } from '@react-vant/icons';
 import styles from './article.module.css'

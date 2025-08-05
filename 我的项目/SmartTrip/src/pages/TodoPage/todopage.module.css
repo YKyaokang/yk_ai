@@ -1,0 +1,29 @@
+
+.Img{
+    display: flex;
+    justify-content: center;
+    margin-top: 350px;
+}
+
+.Img img{
+    width: 450px;
+    height: 450px;
+    border-radius: 50%;
+}
+
+
+h2 {
+    margin-top: 30px;
+    text-align: center;
+    font-size: 75px;
+    line-height: 1;
+    font-weight: 600;
+    color: transparent;
+    background: linear-gradient(135deg, #87CEEB, #4FC3F7, #29B6F6);
+    background-clip: text;
+    -webkit-background-clip: text;
+    text-shadow: 
+        0 2px 4px rgba(135, 206, 235, 0.4),
+        0 4px 8px rgba(79, 195, 247, 0.2);
+    letter-spacing: 1px;
+}

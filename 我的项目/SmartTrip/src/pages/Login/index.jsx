@@ -1,8 +1,9 @@
-import { useState, useEffect } from "react";
-import { useUserStore } from "@/store/useUserStore";
+import { useState } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
-import AppIcons from '@/assets/App/图标.png'
 import styles from './login.module.css';
+import { useUserStore } from "@/store/useUserStore";
+import AppIcons from '@/assets/App/图标.png'
+
 const Login = () => {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');

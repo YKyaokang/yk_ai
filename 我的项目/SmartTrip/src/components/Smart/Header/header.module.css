@@ -1,0 +1,29 @@
+
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 30px;
+    background: white;
+    border-bottom: 1px solid #eee;
+    z-index: 100;
+  }
+  
+  .title {
+    font-size: 36px;
+    font-weight: bold;
+    color: #333;
+  }
+  
+  .headerActions {
+    display: flex;
+  }
+
+  .phoneIcon svg{
+    width: 40px;
+    height:40px;
+  }

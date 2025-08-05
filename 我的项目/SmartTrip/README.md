@@ -38,59 +38,40 @@ vite配置
 订单 定制 右上角 消息 扫码   登录  发送验证码
 
 ## Todo
-实现不同页面的是否登录功能展示
 
-一般来说前端的REACT开发中，对于后端的'api/getUser'接口拿到的已经登录的用户信息是怎么处理的，每次对于一些需要登录才能查看的页面是 怎么鉴权的，是每次在这个页面中通过zustand的方法发送一次api/getUser，还是说在登录界面调用'api/login'之后，将这些信息存在哪个地方，对于鉴权的页面 直接查看这些信息来鉴权，这样做的话会不会出现一些问题呢，比如token过期了怎么办，请你解答我此类问题
+刷算法（晚 一道贪心）
 
-明天：
-刷完算法后 
-- **将捋一遍上面的思路**，实现路由守卫 关注功能
-- 完成登录功能的 跳转前一页 登录Toast 
-- 完成登录功能的路由守卫 后续需要路由守卫的地方 AI助手 个人主页 Toast提醒用户登录
-- 优化一些细节：当用户点击搜索时 查看用户是否 登录
-<!-- - 开发主页，先暂时做一个路由守卫的通用组件，用一个骨架屏先 -->
-- 时间多写卡片
+- 优化客服页的封装和css 改进 
+- 完成AI客服
+- 对AI客服进行路由保护 对AI服务进行路由保护
 
-理解：
-所以我想做的事是：在zustand为useStore 设置一个user表示当前的用户信息，然后在设置一个checkAuth的方法：先用查看当前是否有token和用户信息，如果有token的话但是用户信息为null,那么则 发送一次getUser看当前的token是否有效，如果有的话就设置user为当前的user，如果用户信息不为null的话，那么就啥也不用干，直接设置loading为false,加载当前的页面即可。但是我认为这样子有一个bug：如果token的过期时间为3小时，用户在浏览器待的时间都有3小时以上了，比如第四个小时，由于user一直是有的，所以在checkAuth也没有通过getUser去看token是否有效，导致用户的token实际上已经过期了，但用户还能登。但是当用户此时刷新网页或者重新进浏览器时，这个问题就能得到解决，重新进浏览器时，user会初始化为null，此时checkAuth就会从调用getUser去查看token是否过期，检查到第四个小时了，已经超过了3小时，所以就能让用户重新登录。我的理解正确吗
+AI功能开发 叫AI想
+- 先开发智能客服
+- 添加虚拟打卡
+- 添加文案生成
 
 
-对于搜索组件 当用户点击搜索时，检查用户是否登录
+骨架屏是否需要设置多个 （叫AI想）
 
+单独写一个聊天功能
 
+从页面开始做起 
 
-骨架屏思路
+- 缝合一下 做个智能Agent 既可以生图 又可以回答
 
-  <!-- useEffect(() => {
-    const checkAuth = async () => {
-      try {
-        // 如果内存中没有用户信息，但有token，尝试获取用户信息
-        if (!user && localStorage.getItem('token')) {
-          const currentUser = await authService.getCurrentUser()
-          if (currentUser) {
-            setUser(currentUser, localStorage.getItem('token'))
-          }
-        }
-      } catch (error) {
-        console.error('认证检查失败:', error)
-        authService.logout()
-      } finally {
-        setLoading(false)
-      }
-    }
+- 对于聊天功能 系统提示词安排 智行云游 
 
-    checkAuth()
-  }, [user, setUser])
+- 指引提问 让用户学会智能生图 默认弹出 四五张图片（点击不再提示 最后做该功能 ）
 
-  if (loading) {
-    return <div>加载中...</div>
-  }
+查看使用指引 用户 提问 
 
-  
-  if (!isAuthenticated) {
-    return <Navigate to="/login" replace />
-  } -->
+云游功能 单独开一个页面
 
+将照片放在美景中 生成漫画风格
+
+mitt 的功能实现
+
+时间多写一下首页 瀑布流的帖子的css文字大小等开发
 
 ### day1(8.1)
 - 完成了项目初始化，完成了主页布局搭建，
@@ -150,13 +131,94 @@ mock 能够使用jwt 返回jwt后的数据
 
 - 登录界面不太好看
 
-## 全局Todo
+## day 4（8.4）
+实现不同页面的是否登录功能展示
+
+一般来说前端的REACT开发中，对于后端的'api/getUser'接口拿到的已经登录的用户信息是怎么处理的，每次对于一些需要登录才能查看的页面是 怎么鉴权的，是每次在这个页面中通过zustand的方法发送一次api/getUser，还是说在登录界面调用'api/login'之后，将这些信息存在哪个地方，对于鉴权的页面 直接查看这些信息来鉴权，这样做的话会不会出现一些问题呢，比如token过期了怎么办，请你解答我此类问题
+
+明天：
+
+刷完算法后 
+- **将捋一遍上面的思路**，实现路由守卫 关注功能
+- 完成登录功能的 跳转前一页 登录Toast 
+- 完成登录功能的路由守卫 后续需要路由守卫的地方 AI助手 个人主页 Toast提醒用户登录
+- 优化一些细节：当用户点击搜索时 查看用户是否 登录
+<!-- - 开发主页，先暂时做一个路由守卫的通用组件，用一个骨架屏先 -->
+- 时间多写卡片
+
+- 加载中 动画 
+- 首页屏
+
+理解：
+所以我想做的事是：在zustand为useStore 设置一个user表示当前的用户信息，然后在设置一个checkAuth的方法：先用查看当前是否有token和用户信息，如果有token的话但是用户信息为null,那么则 发送一次getUser看当前的token是否有效，如果有的话就设置user为当前的user，如果用户信息不为null的话，那么就啥也不用干，直接设置loading为false,加载当前的页面即可。但是我认为这样子有一个bug：如果token的过期时间为3小时，用户在浏览器待的时间都有3小时以上了，比如第四个小时，由于user一直是有的，所以在checkAuth也没有通过getUser去看token是否有效，导致用户的token实际上已经过期了，但用户还能登。但是当用户此时刷新网页或者重新进浏览器时，这个问题就能得到解决，重新进浏览器时，user会初始化为null，此时checkAuth就会从调用getUser去查看token是否过期，检查到第四个小时了，已经超过了3小时，所以就能让用户重新登录。我的理解正确吗
+
+
+对于搜索组件 当用户点击搜索时，检查用户是否登录
+
+
+
+骨架屏思路
+
+  <!-- useEffect(() => {
+    const checkAuth = async () => {
+      try {
+        // 如果内存中没有用户信息，但有token，尝试获取用户信息
+        if (!user && localStorage.getItem('token')) {
+          const currentUser = await authService.getCurrentUser()
+          if (currentUser) {
+            setUser(currentUser, localStorage.getItem('token'))
+          }
+        }
+      } catch (error) {
+        console.error('认证检查失败:', error)
+        authService.logout()
+      } finally {
+        setLoading(false)
+      }
+    }
+
+    checkAuth()
+  }, [user, setUser])
+
+  if (loading) {
+    return <div>加载中...</div>
+  }
+
+  
+  if (!isAuthenticated) {
+    return <Navigate to="/login" replace />
+  } -->
+
+
+## 全局Todo 开干！ 向全局出发 先仔细想想
+
+阅读代码&&模块封装
 - 各式各样的性能优化：memo 
+- 规范化项目 先引入react原生(先引入react官方三件套) 再引入css 最后引入组件 store 静态文件（assets图片）
+- 命名规范
+- 小细节：改一下底部的图标
+## 痛苦点，很难找到 优化点 命名规范 没有标准的话 不好想
+- 改天重新审视项目的时候，总结一下难点 并且性能优化 
+- 对于命名规范：看看别人的代码后再参照，现在没有统一标准
+- 上面两件事情现在先不做 现在先完善下细节部分
+- toast 组件封装
+    - 需要自定义，UI组件库不满足需求 
+    - 自定义UI props 
+    - JS 显示出来 跨层级通信
+        观察者
+    - mitt eventBus 事件总线
+    - 订阅者使用on方法 可以订阅某个事件类型
+    - 发布者可以使用emit方法 发布事件 此时 订阅者就能监听到 并且执行回调函数
+    - 这样子做就能实现一个全新的组件通信方式 跨层级  
+
+
+
 - useTitle
-- 加载页
-- 未开发页面的
-- 骨架屏
-- 404页面的构造
+- **加载页** 难点 算是完成了， 但是有几个小小bug：关注页check后还会使用这个加载页
+- **骨架屏** 难点
+- 优化关注和推荐页
+- 关注和推荐页的一些bug待修复
+待开发和未找到界面的自动返回 （正在为您返回（3）秒）的效果
 
 ### 痛苦点：
 攻略页面的关注和推荐 路由嵌套路由 会不会影响一些东西 二级路由里面再路由

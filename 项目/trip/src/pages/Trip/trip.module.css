@@ -1,4 +1,5 @@
 .chatArea {
+    flex: 1;
     overflow-y: auto;
     padding: 12px;
     background-color: #f7faf8;
