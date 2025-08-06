@@ -21,7 +21,8 @@ const Account = lazy(() => import('@/pages/Account'))
 const Login = lazy(() => import('@/pages/Login'))
 const Detail = lazy(() => import('@/pages/Detail'))
 const Coze = lazy(() => import('@/pages/Coze'))
-const TodoPage = lazy(() => import('@/pages/TodoPage'))
+const Article = lazy(() => import('@/pages/Article'))
+const ArticleNew = lazy(() => import('@/pages/Article/ArticleNew'))
 
 import './App.css'
 
@@ -45,6 +46,9 @@ function App() {
           <Route path='/' element={<BlankLayout />}>
             <Route path='/login' element={<Login />} />
             <Route path='/search' element={<Search />} />
+            <Route path='/article' element={<Article />}>
+              <Route path='new' element={<ArticleNew/>} />
+            </Route>
             <Route path='/detail/:id' element={<Detail/> }/>
           </Route>
           <Route path="/coze" element={<Coze />}/>

@@ -3,7 +3,9 @@ import Header from '@/components/Home/Header'
 import Adver from '@/components/Home/Adver'
 import Swiper from '@/components/Home/Swiper'
 import Recommand from '@/components/Home/Recommand'
+import useTitle from '@/hooks/useTitle'
 const Home = () => {
+    useTitle("首页")
     return (
         <div>
             <div className={styles.header}>

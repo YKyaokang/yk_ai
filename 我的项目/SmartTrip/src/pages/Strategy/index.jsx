@@ -1,8 +1,9 @@
 import { useState, useEffect } from 'react'
 import styles from './strategy.module.css'
 import { Outlet, useLocation, useNavigate } from 'react-router-dom'
-
+import useTitle from '@/hooks/useTitle'
 const Strategy = () => {
+    useTitle("攻略")
     const location = useLocation()
     const navigate = useNavigate()
     

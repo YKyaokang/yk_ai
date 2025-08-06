@@ -1,15 +1,9 @@
-import styles from './notfound.module.css'
-import notfound from '@/assets/App/透明吉祥物.png'
+import TodoPageComponents from '@/components/TodoPage'
+import useTitle from '@/hooks/useTitle'
 const NotFound = () => {
+    useTitle("页面未找到")
     return (
-        <div>
-            <div className={styles.Img}>
-                <img src={notfound} alt="404" />
-            </div>
-            <h2 onClick={onClick}>
-                页面未找到
-            </h2>
-        </div>
+        <TodoPageComponents title="页面未找到" />
     )
 }
 

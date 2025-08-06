@@ -3,7 +3,9 @@ import avatar from '@/assets/App/吉祥物.png'
 import Header from '@/components/Smart/Header'
 import { useMessageStore } from '@/store/useMessageStore'
 import { useNavigate } from 'react-router-dom'
+import useTitle from '@/hooks/useTitle'
 const Smart = () => {
+    useTitle("云游")
     const navigate = useNavigate()
     const { initialMessage, setInitialMessages } = useMessageStore()
     // 常见问题

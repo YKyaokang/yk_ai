@@ -7,8 +7,9 @@ import SearchIcons from '@/components/Search/SearchIcons'
 import SearchCenter from '@/components/Search/SearchCenter'
 import SearchCard from '@/components/Search/SearchCard'
 import useSearchStore from '@/store/useSearchStore'
-
+import useTitle from '@/hooks/useTitle'
 const Search = () => {
+    useTitle("搜索")
     const [query,setQuery] = useState("")
     const { suggestList,getSearchList,loading } = useSearchStore()
     const HandleData = (data) => {

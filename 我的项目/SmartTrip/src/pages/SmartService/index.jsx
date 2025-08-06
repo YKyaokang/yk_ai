@@ -23,12 +23,13 @@ import styles from './smartService.module.css'  // 组件样式
 import Header from '@/components/Smart/Header'   // 头部组件
 import user from '@/assets/App/用户.png'        // 用户头像
 import assistant from '@/assets/App/客服.png'    // 助手头像
-
+import useTitle from '@/hooks/useTitle'
 /**
  * 智能客服聊天页面组件
  * 支持流式输出、Markdown渲染、加载动画等功能
  */
 const SmartService = () => {
+    useTitle("云游")
     // ========== 状态管理 ==========
     const [text, setText] = useState("");                          // 输入框文本内容
     const [isSending, setIsSending] = useState(false);             // 是否正在发送消息

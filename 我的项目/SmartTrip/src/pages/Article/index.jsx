@@ -1,16 +1,17 @@
 import { useParams, useNavigate } from 'react-router-dom';
-import { useEffect } from 'react';
+import { useEffect,useState } from 'react';
 import { useArticlesStore } from '@/store/useArticlesStore';
 import { ArrowLeft } from '@react-vant/icons';
 import { Button } from 'react-vant';
 import { LikeO, CommentO, LocationO } from '@react-vant/icons';
 import styles from './article.module.css'
-
+import useTitle from '@/hooks/useTitle'
 const Article = () => {
+    useTitle("文章")
     const { id } = useParams();
     const navigate = useNavigate();
     const { articles, loading } = useArticlesStore()
-    
+    const [isVisable, setIsVisable] = useState(false)
     const article = articles.find(item => item.id === id)
     
     useEffect(() => {
@@ -24,6 +25,10 @@ const Article = () => {
     const handleFollow = () => {
         // TODO: 实现关注功能
         console.log('关注/取消关注');
+        setIsVisable(true)
+        setTimeout(() => {
+            setIsVisable(false)
+        }, 1000)
     }
 
     if (!article) {
@@ -122,7 +127,11 @@ const Article = () => {
                     )}
                 </div>
             </div>
+            <div className={styles.toast} style={{display: isVisable ? 'block' : 'none'}}>
+                关注成功
+            </div>
         </div>
+        
     );
 };
 

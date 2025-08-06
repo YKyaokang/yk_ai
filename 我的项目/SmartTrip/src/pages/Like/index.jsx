@@ -4,7 +4,9 @@ import ArticleCard from '@/components/Strategy/ArtcleCard'
 import { useArticlesStore } from '@/store/useArticlesStore'
 import { useInfiniteScroll } from '@/hooks/useInfiniteScroll'
 import { useWaterfallLayout } from '@/hooks/useWaterfallLayout'
+import useTitle from '@/hooks/useTitle'
 const Like = () => {
+    useTitle("关注")
     // 从文章 store 中获取数据和方法
     const { articles, loading, fetchArticles } = useArticlesStore()
     

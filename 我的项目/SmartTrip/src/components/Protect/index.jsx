@@ -1,6 +1,7 @@
 import { useUserStore } from "@/store/useUserStore";
 import { useEffect, useState } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
+import Loading from "@/components/Loading";
 const Protect = ({ children }) => {
     const { checkAuth } = useUserStore();
     const [loading, setLoading] = useState(true);
@@ -24,7 +25,7 @@ const Protect = ({ children }) => {
 
     if(loading)
     {
-        return (<div><h1>Loading...骨架屏</h1></div>);
+        return (<Loading />);
     }
 
     return children;

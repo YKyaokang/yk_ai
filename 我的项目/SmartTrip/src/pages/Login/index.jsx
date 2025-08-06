@@ -3,8 +3,9 @@ import { useNavigate, useLocation } from "react-router-dom";
 import styles from './login.module.css';
 import { useUserStore } from "@/store/useUserStore";
 import AppIcons from '@/assets/App/图标.png'
-
+import useTitle from '@/hooks/useTitle'
 const Login = () => {
+    useTitle("登录")
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const [showModal, setShowModal] = useState(false);

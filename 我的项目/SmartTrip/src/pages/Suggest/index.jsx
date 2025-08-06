@@ -4,8 +4,10 @@ import ArticleCard from '@/components/Strategy/ArtcleCard'
 import { useArticlesStore } from '@/store/useArticlesStore'
 import { useInfiniteScroll } from '@/hooks/useInfiniteScroll'
 import { useWaterfallLayout } from '@/hooks/useWaterfallLayout'
-import 广告 from '@/assets/strategy/stragety广告.png'
+import 广告 from '@/assets/strategy/stragety广告.png'   
+import useTitle from '@/hooks/useTitle'
 const Suggest = () => {
+    useTitle("推荐")
     // 从文章 store 中获取数据和方法
     const { articles, loading, fetchArticles } = useArticlesStore()
     

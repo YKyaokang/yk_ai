@@ -38,6 +38,7 @@ function SearchBox(props) {
         handleDataDebounce(text)
     }, [text])
 
+    const [isVisable, setIsVisable] = useState(false)
     const searchClick = () => {
         const check = async () => {
             const res = await checkAuth()
@@ -46,7 +47,11 @@ function SearchBox(props) {
                 navigate('/login')
             }
             if(text.trim() !== ''){
+                setIsVisable(true)
                 updateSearchHistory(text)
+                setTimeout(() => {
+                    setIsVisable(false)
+                }, 1000)
             }
         }   
         check()
@@ -54,6 +59,7 @@ function SearchBox(props) {
 
     return (
         <>
+        
         <div className={styles.header_left}>
             <ArrowLeft  color="#6c6d72" onClick={() => {
                 window.history.back()
@@ -73,6 +79,10 @@ function SearchBox(props) {
             <button className={styles.header_search} onClick={searchClick}>
                 搜索
             </button>
+
+            <div className={styles.toast} style={{display: isVisable ? 'block' : 'none'}}>
+                搜索成功
+            </div>
         </>
     )
 }

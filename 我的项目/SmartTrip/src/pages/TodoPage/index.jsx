@@ -1,15 +1,9 @@
-import styles from './todopage.module.css'
-import notfound from '@/assets/App/透明吉祥物.png'
+import TodoPageComponents from '@/components/TodoPage'
+import useTitle from '@/hooks/useTitle'
 const TodoPage = () => {
+    useTitle("页面待开发")
     return (
-        <div>
-        <div className={styles.Img}>
-            <img src={notfound} alt="404" />
-        </div>
-        <h2>
-            页面待开发
-        </h2>
-    </div>
+        <TodoPageComponents title="页面待开发" />
     )
 }
 export default TodoPage
