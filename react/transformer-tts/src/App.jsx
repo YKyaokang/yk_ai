@@ -62,7 +62,14 @@ function App() {
         case 'ready':
           setReady(true);
         break;
+        case 'complete':
+          setDisabled(false);
+          const blobUrl = URL.createObjectURL(e.data.output);
+          console.log(blobUrl,'????');
+          setOutput(blobUrl);
+        break;
       }
+      
     }
     worker.current.onmessage = onMessageReceived;
 

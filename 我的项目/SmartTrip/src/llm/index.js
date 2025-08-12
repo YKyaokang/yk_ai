@@ -67,40 +67,49 @@ export const chatStream = async (
             throw new Error(`HTTP error! status: ${response.status}`);
         }
         
+        // 流式输出核心代码
+        // 1. 获取响应体的可读流读取器，用于逐块读取数据
         const reader = response.body.getReader();
+        // 2. TextDecoder: 将接收到的字节数据解码为文本
         const decoder = new TextDecoder();
+        // 3. fullContent: 累积存储完整的AI回复内容
         let fullContent = '';
         
         try {
             while (true) {
+                // reader.read(): 异步读取下一个数据块，返回 { done, value } 对象
                 const { done, value } = await reader.read();
                 
                 if (done) {
                     break;
                 }
-                
+                //4. 将接收到的字节数据解码为文本
                 const chunk = decoder.decode(value, { stream: true });
+                // 5. 将解码后的文本按行分割
                 const lines = chunk.split('\n');
-                
+                // 6. 遍历每一行
                 for (const line of lines) {
+                    // 7. 如果行以 'data: ' 开头
                     if (line.startsWith('data: ')) {
+                        // 8. 去掉 'data: ' 前缀
                         const data = line.slice(6);
-                        
+                        // 9. 如果数据是 '[DONE]'，则跳过
                         if (data === '[DONE]') {
                             continue;
                         }
-                        
+                        // 10. 尝试解析JSON数据
                         try {
                             const parsed = JSON.parse(data);
                             const content = parsed.choices?.[0]?.delta?.content;
                             
+                            // 11. 如果解析成功，则将内容添加到累积内容中
                             if (content) {
                                 fullContent += content;
                                 // 调用回调函数更新UI
                                 onStreamUpdate(fullContent);
                             }
                         } catch (e) {
-                            // 忽略解析错误的行
+                            // 12. 忽略解析错误的行
                             continue;
                         }
                     }

@@ -35,12 +35,11 @@ const SmartService = () => {
     const [isSending, setIsSending] = useState(false);             // 是否正在发送消息
     const [isStreaming, setIsStreaming] = useState(false);         // 是否正在流式输出
     const [streamingContent, setStreamingContent] = useState('');  // 流式输出的临时内容
-    const [nextId, setNextId] = useState(4);                       // 下一个消息的ID（从4开始，因为1,2,3已被占用）
+    const [nextId, setNextId] = useState(4);                       // 下一个消息的ID（123已经被初始化三条信息占用）
     
     // ========== 引用和Store ==========
     const chatAreaRef = useRef(null);                             // 聊天区域DOM引用，用于自动滚动
     const { initialMessage } = useMessageStore()                  // 从Store获取初始消息
-    console.log(initialMessage, '第一次');
     // ========== 消息列表状态 ==========
     const [messages, setMessages] = useState([
         {
@@ -99,7 +98,6 @@ const SmartService = () => {
             // 验证消息格式是否正确
             if (firstMessage && firstMessage.content && firstMessage.role === 'user') {
                 // 自动发送初始消息
-                console.log("hahas")
                 handleInitialMessage(firstMessage.content);
             }
         }

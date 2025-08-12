@@ -5,6 +5,9 @@ import {
     SpeechT5ForTextToSpeech, // 文本转语音模型 语音的特征
     SpeechT5HifiGan // 语音合成模型 和音色合成
 } from '@xenova/transformers'
+
+import {encodeWAV} from './utils'
+
 // huggingFace 开源的大模型社区 
 // 禁用本地大模型，去请求远程的 tts模型
 env.allowLocalModels = false;
@@ -26,6 +29,23 @@ class MyTextToSpeechPipeline {
     static model_instance = null;
     // 合成实例
     static vocoder_instance = null;
+    
+    static async getSpeakerEmbedding(speaker_id){
+        // 下载语音特征报
+        const speaker_embeddings_url = `${this.BASE_URL}${speaker_id}.bin`
+        // 张量
+        // 下载文件 .bin
+        // 转换数据 将二进制数据转换为Float32Array
+        // 创建一个张良 构建1x512维度的特征向量
+        // 转换数据 将二进制.bin二进制数据转换为Float32Array
+        const speaker_embeddings = new Tensor(
+            'float32',
+            new Float32Array(await (await fetch(speaker_embeddings_url)).arrayBuffer()),
+            [1,512]  //转换成张量 构建1x512 的维度特征向量
+        );
+        return speaker_embeddings;
+    }
+
     static async getInstance(progress_callback=null) {
         // 分词器实例化
         if (this.tokenizer_instance === null) {
@@ -71,11 +91,60 @@ class MyTextToSpeechPipeline {
     }
 
 }
+// es6 新增的数据解构 HashMap 先想象成JSON 对象
+const speaker_embedding_cache = new Map();
+
 self.onmessage = async (e) => {
-    // console.log(e)
+    console.log(e,"demo")
     // ai pipeline 派发一个nlp任务
     // 懒加载 llm 初始化和加载放到第一次任务调用之时
-    const [] = await MyTextToSpeechPipeline.getInstance(x => {
+    // 解构三个实例
+    const [tokenizer, model, vocoder] = await MyTextToSpeechPipeline.getInstance(x => {
         self.postMessage(x)
     })
+    const {
+        input_ids  
+    }  = tokenizer(e.data.text);
+
+    console.log(e.data.text,'??ss??');
+
+    // token 将是LLM 的输入 
+    // 将原始的输入 分词为一个个的word (字) ，对应着数字编码
+    // 向量的相似度、维度 万事万物了
+    // 一个一个token 去生成
+    // 以前的搜索的区别
+    // console.log(e.data.text,input_ids,'????');
+    // prompt => 函数 => LLM(函数、向量计算、参数十亿+级别) =》 output
+    // console.log(e.data.text,input_ids,'????');
+    // 基于model 生成的声音特征 
+    let speaker_embeddings = speaker_embedding_cache.get(e.data.speaker_id);  //利用缓存 查看是否有这个speaker_id ,利用缓存机制实现
+    if(speaker_embeddings === undefined){
+        // 下载某个音色的特征向量 
+        // 将下载的特征向量 存入缓存
+        speaker_embeddings = await MyTextToSpeechPipeline.getSpeakerEmbedding(e.data.speaker_id)
+        speaker_embedding_cache.set(e.data.speaker_id,speaker_embeddings)
+    }
+    // console.log(speaker_embeddings,'?11???');
+    // 返回一个声波
+    const { waveform } = await model.generate_speech(
+        input_ids, // 分词数组 512维
+        speaker_embeddings,  // 512 维度的向量 
+        {vocoder}  // 合成器
+    );
+    // 声音的blob文件 
+    console.log(waveform,'????');
+    const wav = encodeWAV(waveform.data);
+    console.log(wav,'????');
+    self.postMessage({
+        status: 'complete',
+        output: new Blob([wav],{
+            type: 'audio/wav'
+        })
+    });
 }
+
+// 文本输入 → 分词 → 文本特征
+//                     ↓
+// 说话人ID → 下载特征 → 张量 → 语音模型 → 语音特征 → 语音合成 → 最终音频
+
+// 最后 encodeWAV上述的准备过程 的数据 转换

@@ -1,12 +1,5 @@
-# React + Vite
+- 需要有一个audio标签的url <- Object.createObjectURL(Blob) <- blob 二进制文件 <- 
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Object.createObjectURL 是一个用于创建一个唯一 URL，该 URL 可以引用由浏览器内部生成的对象（如 Blob 或 File 对象）的方法，常用于在网页中显示本地文件内容，如图片预览。
+临时地址 大模型 不负责给你全局访问的地址
 
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
