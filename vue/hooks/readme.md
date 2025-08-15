@@ -18,18 +18,14 @@
 # Vue 和 react 相同点和区别
     hooks 函数式编程思想
 
-ahooks 是一个由阿里巴巴开源的React Hooks 库，提供大量使用的自定义hooks
-
-- hooks 表达总线
+    - hooks 表达总线
     - 什么是hooks
-    能够在不编写 class 的情况下，使用 React 的状态（state）和生命周期等特性。
-    Hooks 提供了一种更直观、更灵活的方式来组织和复用组件中的逻辑和响应式业务。
-    react 内置的hooks useState, useEffect 副作用等，挺好用的。
+    Hooks 是 React 16.8 引入的特性，能够在不编写 class 的情况下，使用 React 的状态（state）和生命周期等特性，Hooks 提供了一种更直观、更灵活的方式来组织和复用组件中的逻辑和响应式业务。
     
     - 内置的hooks
         useState
         useEffect（副作用）
-        useLayoutEffect 绘制之前前同步执行 适合用于读取布局并同步更新的场景，以避免视觉闪烁
+        useLayoutEffect 绘制之前前同步执行 会阻塞渲染，能够避免视觉“白屏效果“
         useMemo
         useCallback
         useContext
@@ -39,4 +35,5 @@ ahooks 是一个由阿里巴巴开源的React Hooks 库，提供大量使用的�
     - 自定义的hooks 
         useTitle、useTodos、useMouse、useRepos
     - ahooks 第三方hooks
+        ahooks 是一个由阿里巴巴开源的React Hooks 库，提供大量使用的自定义hooks
         useToggle、useRequest 我在业务中就经常用
