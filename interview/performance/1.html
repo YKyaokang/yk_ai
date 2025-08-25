@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #myList {
+            
+        }
+    </style>
+</head>
+<body>
+    <ul id="myList">
+        <li>Item1</li>
+        <li>Item2</li>
+        <li>Item3</li>
+    </ul>
+    <script>
+        document.addEventListener('DOMContentLoaded',() => {
+            // performance api
+            performance.mark('start');
+            // 获取第一个元素
+            const firstLi = document.querySelector('#myList li');
+            if(firstLi) {
+                performance.mark('firstLiRendered');
+            }
+            performance.mark('end');
+            performance.measure('First LI Render Time', 'start' , 'firstLiRendered');
+            const measure = performance.getEntriesByName('First LI Render Time');
+            if(measure.length > 0) {
+                console.log('第一个渲染时间' , measure[0].duration,'毫秒');
+            }  
+            
+            performance.clearMarks();
+            performance.clearMeasures();
+
+        })
+    </script>
+</body>
+</html>
