@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>手写Promise.all</title>
+    <script>
+        // Promise 状态有3个 pending fullfilled rejected
+        Promise.MyAll = function(promises){
+           let arr = [];
+           let count = 0;
+           return new Promise((resolve,reject) => {
+                // resolve->all promises 所有都resolve 才能调用
+                // 如果promise[i] 不是promise怎么办 Promise.resolve()
+                promises.forEach((item,i) => {
+                    // 里面变promise （不是promise 就变成promise，是promise 就执行）
+                    Promise.resolve(item).then(res => {
+                        arr[i] = res;  //闭包
+                        count += 1;
+                        if(count === promises.length){resolve(arr)}
+                    }).catch(reject)
+                })
+           })
+        }
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
