@@ -12,3 +12,5 @@
     如果多个promise值前后有依赖， async/await有优势，但如果没有，则Promise.all并发更快
 
     如果并行业务需求，all/race/any/allSettled
+
+
