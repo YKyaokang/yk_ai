@@ -19,6 +19,7 @@
 .image_container {
   position: relative;
   width: 100%;
+  min-height: 420px;
   overflow: hidden;
   flex-shrink: 0;
 }

@@ -1,0 +1,298 @@
+/* ==================== 静态样式 ==================== */
+
+/* 容器样式 */
+.container {
+    background: #f5f5f5;
+    min-height: 100vh;
+}
+
+/* 搜索区域 */
+.searchSection {
+    background: linear-gradient(145deg, #e3f2fd 0%, #bbdefb 25%, #90caf9 50%, #64b5f6 75%, #42a5f5 100%);
+    padding: 20px 16px;
+    border-radius: 0 0 32px 32px;
+    position: relative;
+    overflow: hidden;
+}
+
+.searchBar {
+    position: relative;
+    z-index: 1;
+}
+
+/* 网格区域 */
+.gridSection {
+    background: rgba(255, 255, 255, 0.85);
+    margin: 20px 16px;
+    border-radius: 20px;
+    padding: 20px;
+    backdrop-filter: blur(15px);
+    position: relative;
+    overflow: hidden;
+}
+
+.gridContainer {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    gap: 10px;
+    position: relative;
+    z-index: 1;
+}
+
+.gridItem {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+/* 广告区域 */
+.adverSection {
+    background: #f0f0f0;
+    padding: 15px;
+    position: relative;
+    overflow: hidden;
+}
+
+.adverGrid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+    position: relative;
+    z-index: 1;
+}
+
+.adverItem {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+/* 轮播图区域 */
+.swiperSection {
+    background: #f0f0f0;
+    padding: 15px;
+    position: relative;
+    overflow: hidden;
+}
+
+.swiperContainer {
+    position: relative;
+    z-index: 1;
+}
+
+/* 推荐区域 */
+.recommandSection {
+    background: white;
+    padding: 15px;
+    position: relative;
+    overflow: hidden;
+}
+
+.recommandTitle {
+    position: relative;
+    z-index: 1;
+}
+
+.cardGrid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+    margin-top: 15px;
+    position: relative;
+    z-index: 1;
+}
+
+.cardItem {
+    background: #f8f8f8;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.cardContent {
+    padding: 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.cardFooter {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 8px;
+}
+
+
+/* ==================== 动态样式 ==================== */
+
+/* 闪光效果 */
+.searchSection::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+    animation: shimmer 2s infinite;
+}
+
+.gridSection::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.6), transparent);
+    animation: shimmer 2.5s infinite;
+}
+
+.adverSection::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+    animation: shimmer 3s infinite;
+}
+
+.swiperSection::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+    animation: shimmer 2.2s infinite;
+}
+
+.recommandSection::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+    animation: shimmer 2.8s infinite;
+}
+
+/* 渐入动画 */
+.gridItem {
+    animation: fadeInUp 0.6s ease-out;
+}
+
+.gridItem:nth-child(1) { animation-delay: 0.1s; }
+.gridItem:nth-child(2) { animation-delay: 0.2s; }
+.gridItem:nth-child(3) { animation-delay: 0.3s; }
+.gridItem:nth-child(4) { animation-delay: 0.4s; }
+.gridItem:nth-child(5) { animation-delay: 0.5s; }
+.gridItem:nth-child(6) { animation-delay: 0.6s; }
+.gridItem:nth-child(7) { animation-delay: 0.7s; }
+.gridItem:nth-child(8) { animation-delay: 0.8s; }
+.gridItem:nth-child(9) { animation-delay: 0.9s; }
+.gridItem:nth-child(10) { animation-delay: 1.0s; }
+.gridItem:nth-child(11) { animation-delay: 1.1s; }
+.gridItem:nth-child(12) { animation-delay: 1.2s; }
+.gridItem:nth-child(13) { animation-delay: 1.3s; }
+.gridItem:nth-child(14) { animation-delay: 1.4s; }
+.gridItem:nth-child(15) { animation-delay: 1.5s; }
+
+.adverItem {
+    animation: fadeInUp 0.8s ease-out;
+}
+
+.adverItem:nth-child(1) { animation-delay: 0.2s; }
+.adverItem:nth-child(2) { animation-delay: 0.4s; }
+.adverItem:nth-child(3) { animation-delay: 0.6s; }
+.adverItem:nth-child(4) { animation-delay: 0.8s; }
+
+.swiperContainer {
+    animation: fadeInUp 1s ease-out;
+}
+
+.recommandTitle {
+    animation: fadeInUp 1.2s ease-out;
+}
+
+.cardItem {
+    animation: fadeInUp 1.4s ease-out;
+}
+
+.cardItem:nth-child(1) { animation-delay: 0.2s; }
+.cardItem:nth-child(2) { animation-delay: 0.4s; }
+.cardItem:nth-child(3) { animation-delay: 0.6s; }
+.cardItem:nth-child(4) { animation-delay: 0.8s; }
+.cardItem:nth-child(5) { animation-delay: 1.0s; }
+.cardItem:nth-child(6) { animation-delay: 1.2s; }
+
+/* 脉冲动画 */
+.iconSkeleton {
+    animation: pu   lse 1.5s ease-in-out infinite;
+}
+
+
+.adverTitle {
+    animation: pulse 1.5s ease-in-out infinite;
+}
+
+.adverImage {
+    animation: pulse 1.5s ease-in-out infinite 0.3s;
+}
+
+.cardImage {
+    animation: pulse 1.5s ease-in-out infinite;
+}
+
+.cardTitle {
+    animation: pulse 1.5s ease-in-out infinite 0.2s;
+}
+
+.cardLocation {
+    animation: pulse 1.5s ease-in-out infinite 0.4s;
+}
+
+.cardPrice {
+    animation: pulse 1.5s ease-in-out infinite 0.6s;
+}
+
+.cardStats {
+    animation: pulse 1.5s ease-in-out infinite 0.8s;
+}
+
+/* ==================== 动画定义 ==================== */
+
+@keyframes shimmer {
+    0% {
+        left: -100%;
+    }
+    100% {
+        left: 100%;
+    }
+}
+
+@keyframes pulse {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.5;
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+} 

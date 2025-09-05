@@ -44,6 +44,15 @@
     color: #333737;
 }
 
+.userInfo .logout {
+    padding: 10px;
+    font-size: 27px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color: rgb(73, 41, 149);
+    border-radius: 30px;
+    margin-left: 350px;
+}
+
 .adv {
     display: flex;
     justify-content: space-between;

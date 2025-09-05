@@ -22,17 +22,19 @@
 }
 
 /* 加载器样式 */
-.loader {
-  text-align: center;
-  padding: 20px;
-  font-size: 16px;
-  color: #666;
-  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
-  background-size: 200% 100%;
-  animation: loading 1.5s infinite;
-  border-radius: 8px;
-  margin-top: 20px;
-}
+  .loader {
+    text-align: center;
+    padding: 20px;
+    font-size: 30px;
+    padding-bottom: 200px;
+    background-color: #666;
+    color: #666;
+    background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+    background-size: 200% 100%;
+    animation: loading 1.5s infinite;
+    border-radius: 8px;
+    margin-top: 20px;
+  }
 
 @keyframes loading {
   0% {
@@ -54,9 +56,17 @@
   }
   
   .loader {
-    padding: 16px;
-    font-size: 14px;
-    margin-top: 16px;
+    text-align: center;
+    padding: 20px;
+    font-size: 30px;
+    padding-bottom: 200px;
+    background-color: #666;
+    color: #666;
+    background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+    background-size: 200% 100%;
+    animation: loading 1.5s infinite;
+    border-radius: 8px;
+    margin-top: 20px;
   }
 }
 

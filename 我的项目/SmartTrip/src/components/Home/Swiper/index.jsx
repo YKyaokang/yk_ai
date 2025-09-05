@@ -1,6 +1,7 @@
 import {memo} from 'react'
 import styles from './swiper.module.css'
 import { Swiper, Image } from 'react-vant';
+import { useNavigate } from 'react-router-dom'
 // 引入home-swiper目录中的7张图片
 import Swiper1 from '@/assets/home-swiper/生成动漫风格轮播图.png'
 import Swiper2 from '@/assets/home-swiper/生成动漫风格轮播图 (1).png'
@@ -22,9 +23,10 @@ const swiperData = [
 ]
 
 const SwiperComponent = () => {
+    const navigate = useNavigate()
     return (
         <>
-        <div className={styles.swiper_container}>
+        <div className={styles.swiper_container} onClick={() => {navigate('/todopage')}}>
             <Swiper 
                 autoplay={3000}
                 loop={true}

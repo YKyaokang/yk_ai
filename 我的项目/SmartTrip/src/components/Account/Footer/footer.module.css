@@ -43,4 +43,20 @@
     padding-top: 120px;
     text-align: center;
     color: #b0afad
+    
+}
+.footer_text span1 {
+    color: rgba(175, 21, 21, 0.311);
+    font-size: 27px;
+    font-weight: 600;
+}
+.footer_text span2 {
+    color: #06ae527e;
+    font-size: 27px;
+    font-weight: 600;
+}
+.footer_text span3 {
+    color: #0609aeae;
+    font-size: 27px;
+    font-weight: 600;
 }

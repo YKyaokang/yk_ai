@@ -12,7 +12,7 @@ export default defineConfig({
     viteMockServe({
       mockPath: 'mock',
       localEnabled: true,
-      prodEnabled: true,
+      prodEnabled: false, // 关闭vite-plugin-mock的生产模式，我们使用自定义的mock服务
       watchFiles: true,
       logger: true,
       supportTs: false
@@ -27,5 +27,13 @@ export default defineConfig({
     host: '0.0.0.0',
     port: 5174,
     cors: true
+  },
+  build: {
+    rollupOptions: {
+      // 确保mock文件被包含在构建中
+      input: {
+        main: path.resolve(__dirname, 'index.html')
+      }
+    }
   }
 })

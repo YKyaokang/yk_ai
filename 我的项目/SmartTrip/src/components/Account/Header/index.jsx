@@ -2,8 +2,9 @@ import { useEffect } from 'react'
 import styles from './header.module.css'
 import { Scan, SettingO, CommentO } from '@react-vant/icons'
 import { useUserStore } from '@/store/useUserStore'
-import logo from '@/assets/App/吉祥物.png'
+import logo from '@/assets/App/吉祥物.png'  
 import bg from '@/assets/Account-header/个人主页背景.png'
+import { useNavigate } from 'react-router-dom'
 const Header = () => {
     const list = [
         {
@@ -23,7 +24,12 @@ const Header = () => {
             value: '301分',
         }
     ]
+    const navigate = useNavigate()
     const {user} = useUserStore()
+    const logout = () => {
+        localStorage.removeItem('token')
+        navigate('/login')
+    }
     useEffect(() => {
         console.log(user)
     }, [user])
@@ -43,6 +49,7 @@ const Header = () => {
                         <img src={logo} alt="智行云游" />
                     </div>
                     <span>{user.username}</span>
+                    <div className={styles.logout} onClick={logout}>注销登录</div>
             </div>
 
             <div className={styles.adv}>

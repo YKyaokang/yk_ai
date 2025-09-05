@@ -69,8 +69,9 @@ const Footer = () => {
         </div>
 
         <div className={styles.footer_text}>
-            版权所有 智行云游<br/>
-            备案号：粤ICP备1900000000000000号
+            <span1>版权所有 智行云游</span1><br/>
+            <span2>注意：上述功能还未完成哦！</span2><br/>
+            <span3>请持续关注创作者：3Katrina</span3>
         </div>
         </>
 

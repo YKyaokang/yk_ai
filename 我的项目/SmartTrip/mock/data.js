@@ -9,7 +9,7 @@ const getImages = (page, pageSize = 10) => {
         const bgColor = Mock.Random.pick(colors);
         const textColor = 'ffffff';
         const width = Mock.Random.integer(250, 350);
-        const height = Mock.Random.integer(400, 600);
+        const height = Mock.Random.integer(400, 450);
         
         const imageUrl = `https://dummyimage.com/${width}x${height}/${bgColor}/${textColor}.png&text=景点${page}-${i}`;
         
@@ -43,7 +43,7 @@ const getArticles = (page, pageSize = 10) => {
         
         // 生成地点图片
         const imageWidth = Mock.Random.integer(300, 400);
-        const imageHeight = Mock.Random.integer(400, 600);
+        const imageHeight = Mock.Random.integer(400, 450);
                 const imageUrl = `https://dummyimage.com/${imageWidth}x${imageHeight}/${imageBgColor}/ffffff.png&text=${encodeURIComponent('攻略')}${page}-${i}`;
         
         // 生成评论列表
@@ -252,4 +252,3 @@ export default [
     }
 }
 ];
-
