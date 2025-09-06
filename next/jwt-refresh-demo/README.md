@@ -11,6 +11,17 @@
     mcp
 - ai 搜索
 
+## 双token 
+单token localStorage 长期，第三方拦截 不安全
+安全 + 无感刷新登录
+双token 
+- accessToken 校验身份 重要 时间有效期变短 h小时为单位 cookie
+    过期怎么办？
+- refreshToken 刷新 7d 时间长
+    没有过期，refreshToken 发到服务器 / api/auth/refresh 
+    返回新的accessToken 无感刷新
+- refreshToken 过期后，去登录
+
 
 ## 开发流程
 - .env 
@@ -43,6 +54,75 @@
 
 - restful API
 - lib/ 复用的js 模块
+- regexp
+    前端，后端要会正则
+    /^.+[]{} $/ test  
+    ^ 开始
+    $ 结束
+    . 一个或多个
+    ？ 0次或1次
+    + 一次或多次
+    [] 范围 
+    {} 长度
+- bcryptjs 加密js 模块 单向的加密算法 （不能被解密）
+    register 加密一次
+    login password 加密一次
+    比较的是加密后的串是否一样？
+
+**状态码**
+    - 200 OK
+    - 201 Created
+    - 400 Bad Request
+    - 401 Forbidden
+    - 409 Conflict
+    - 500 Internal Server Error
+
+- middleware 的概念
+    中间件 配置一个列表
+    /dashboard 
+    Middleware是中间件，用于在请求和响应之间执行预处理逻辑，如日志，认证，数据解析等。
+    1. 配置一个需要登录的页面数组
+    2. some startWith
+    3. response.next() 放行
+    4. response.redirect() 跳转
+
+    - 通过jwt verify方法拿到payload后，添加了自定义的请求头
+        x-user-id 
+        后序页面就可以拿到这个值
+        
+
+- JWT 的构成
+    - 头部Header
+        签名算法 HS256 
+    - 载荷payload
+        {userId:.....}
+    - 签名signtural
+        secretKey
+
+    -**cookie**
+        - httpOnly: true
+        该项可以有效防止Javascript 访问 cookie，有效抵御 XSS 攻击导致的令牌泄漏(服务器端设置)
+        - sameSimte
+        该项可以防止跨站请求伪造（CSRF）攻击，限制 Cookie 在跨域请求中的自动发送，提升安全性
+
+
+- 后端安全和性能
+    - 一定要做容错处理 
+        try{}catch{}finally{}
+    - 释放数据库对象
+- prisma client 的CRUD方法
+    prisma.user.create()
+    prisma.user.findUnique()
+    prisma.user.update({
+        where:{},
+        data:{}
+    })
+
+
+
+
+
+
 
 ## 大文件上传
 当文件比较大的时候，由于各种原因，容易失败，而且上传速慢，一旦失败，需要重新上传，会让用户沮丧

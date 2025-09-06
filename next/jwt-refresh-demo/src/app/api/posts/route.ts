@@ -5,7 +5,7 @@ import {
 
 import {
     prisma
-} from '@/lib/db'
+} from '../../../../lib/db'
 // restful 
 export async function POST(request:NextRequest){
     // 容错处理 稳定为主
