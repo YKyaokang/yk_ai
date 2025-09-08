@@ -170,4 +170,13 @@
         滚动到底部加载更多，
         后端分页
 
-     哈哈啊哈哈哈
+- x-crawl
+x-crawl 是一个灵活且功能强大的Node.js 多功能爬虫库，支持页面、接口和文件的抓取，并继承了AI 辅助功能以智能应对反爬机制和爬取策略。
+(对于SSR 更适合爬，要不然SPA只有一个挂载点)
+- 爬取流程
+1. http 请求得到html
+2. 正则 后端
+3. css querySelector 
+    内存中 将HTML 字符串渲染为dom树 x-crawl 支持在内存DOM树种使用querySelector 语法来查找  
+4. AI 辅助
+    用prompt 去描述我们需要的内容,AI可以代替我们和内存DOM 树 沟通
