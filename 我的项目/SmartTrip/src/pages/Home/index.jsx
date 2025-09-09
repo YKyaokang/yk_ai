@@ -5,7 +5,9 @@ import Adver from '@/components/Home/Adver'
 import Swiper from '@/components/Home/Swiper'
 import Recommand from '@/components/Home/Recommand'
 import AnimatedSkeleton from '@/components/Home/Skeleton/AnimatedSkeleton'
+import WelcomeModal from '@/components/Home/WelcomeModal'
 import useTitle from '@/hooks/useTitle'
+import { useUserStore } from '@/store/useUserStore'
 
 // 导入所有需要预加载的图片资源
 // Adver 组件图片
@@ -27,7 +29,11 @@ import 南昌梅岭 from '@/assets/home-travel/南昌梅岭.png'
 const Home = () => {
     useTitle("首页")
     const [loading, setLoading] = useState(true)
+    const [showWelcomeModal, setShowWelcomeModal] = useState(false)
     const preloadedImagesRef = useRef(new Set())
+    
+    // 获取用户登录状态
+    const { isLogin } = useUserStore()
 
     // 定义需要预加载的所有图片
     const imagesToPreload = [
@@ -78,15 +84,28 @@ const Home = () => {
             // 立即开始预加载图片
             await preloadImages(imagesToPreload)
         
-            
             setLoading(false)
             
-
-            return () => clearTimeout(timer) 
+            // 检查用户是否已经看过欢迎模态框（按会话存储，关闭浏览器后重置）
+            const hasSeenWelcomeModal = sessionStorage.getItem('hasSeenWelcomeModal')
+            
+            // 骨架屏加载完成后，如果用户未登录且未看过模态框才显示欢迎模态框
+            if (!isLogin && !hasSeenWelcomeModal) {
+                setTimeout(() => {
+                    setShowWelcomeModal(true)
+                }, 500) // 延迟500ms让页面内容先渲染
+            }
         }
 
         startPreload()
-    }, [])
+    }, [isLogin])
+
+    // 关闭欢迎模态框的处理函数
+    const handleCloseWelcomeModal = () => {
+        setShowWelcomeModal(false)
+        // 标记用户已经看过欢迎模态框（使用sessionStorage，关闭浏览器后重置）
+        sessionStorage.setItem('hasSeenWelcomeModal', 'true')
+    }
 
     return (
         <div>
@@ -106,6 +125,14 @@ const Home = () => {
                         <Recommand />
                     </div>
                 </>
+            )}
+            
+            {/* 欢迎模态框 - 仅在用户未登录时显示 */}
+            {!isLogin && (
+                <WelcomeModal 
+                    isVisible={showWelcomeModal} 
+                    onClose={handleCloseWelcomeModal} 
+                />
             )}
         </div>
     )

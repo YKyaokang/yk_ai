@@ -31,3 +31,16 @@ React.createElement 返回的 Element 就是一个描述“要在页面上渲染
 - React is a namespace
 - The createElement Function（工厂模式）
 - The render Funciton
+- Concurrent Mode 并发模式
+- Fibers 机制 可中断 一个Element节点对应一个Fiber节点
+
+## Concurrent Mode 并发模式
+React Concurrent Mode 是一种让渲染过程可中断、可优先级排序的机制，通过将工作拆分为小块并允许高优先级更新（如用户输入）插队，从而避免主线程阻塞，提升应用的响应性和流畅度。
+
+fiber 节点 工作节点 
+- 中断
+- 继续
+- fiber 节点对象有哪些属性
+
+
+

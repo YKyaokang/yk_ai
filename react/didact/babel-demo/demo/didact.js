@@ -15,6 +15,7 @@ function createElement(type, props, ...children) {
         }
     }
 }
+
 // 略显复杂 ？ 
 function createTextElement(text) {
     return {
@@ -53,6 +54,7 @@ const Didact = {
     createElement,// 生成VDOM,一次生成 内存中
     render // 真实DOM并挂载
 }
+
 // babel 给的
 const element = Didact.createElement(
     "div",
